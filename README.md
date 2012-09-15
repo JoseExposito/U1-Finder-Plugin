@@ -33,8 +33,7 @@ can see collaborate is very easy.
 
 + **Sending suggestions**
 
- Are you _U1 Finder Plugin_ user and think that the project need something?
-Any gesture or action that you consedere useful? Do not hesitate, let him know it to me!
+ Are you _U1 Finder Plugin_ user and think that the project need something? Do not hesitate, let me know!
 
 
 + **Reporting bugs**
@@ -43,7 +42,7 @@ Any gesture or action that you consedere useful? Do not hesitate, let him know i
 
 + **Advertising _U1 Finder Plugin_ project**
 
- If you have a blog, a website, a Facebook or Twitter account or some similar, a good way to help to the project is making him known to more users
+ If you have a blog, a website, a Facebook or Twitter account or some similar, a good way to help the project is making it known to more users
 
 
 + **Making a donation**
