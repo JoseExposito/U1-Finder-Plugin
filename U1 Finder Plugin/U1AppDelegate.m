@@ -20,6 +20,7 @@
 #import "U1Hook.h"
 #import "U1IconOverlayLionAndML.h"
 #import "U1IconOverlayUtils.h"
+#import "U1ContextMenuHookML.h"
 
 @interface U1AppDelegate ()
 
@@ -69,6 +70,12 @@
     // Icon overlay (Lion & Mountain Lion)
     [U1Hook hookMethod:@selector(drawImage:) inClass:@"TIconViewCell" toCallToTheNewMethod:@selector(U1IconOverlayHook_TIconViewCell_drawImage:)];
     [U1Hook hookMethod:@selector(drawIconWithFrame:) inClass:@"TListViewIconAndTextCell" toCallToTheNewMethod:@selector(U1IconOverlayHook_TListViewIconAndTextCell_drawIconWithFrame:)];
+    
+    // Context menu (Mountain Lion)
+    [U1Hook hookClassMethod:@selector(handleContextMenuCommon:nodes:event:view:browserController:addPlugIns:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_handleContextMenuCommon:nodes:event:view:browserController:addPlugIns:)];
+    [U1Hook hookClassMethod:@selector(addViewSpecificStuffToMenu:browserViewController:context:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_addViewSpecificStuffToMenu:browserViewController:context:)];
+    [U1Hook hookMethod:@selector(configureWithNodes:windowController:container:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_configureWithNodes:windowController:container:)];
+    [U1Hook hookMethod:@selector(configureWithNodes:browserController:container:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_configureWithNodes:browserController:container:)];
 }
 
 

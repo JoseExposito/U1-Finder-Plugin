@@ -15,7 +15,6 @@
 		8223BEB41603742E00501BA6 /* U1AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BEB31603742E00501BA6 /* U1AccountManager.m */; };
 		82A5A0731604B05600E06BC5 /* U1Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0721604B05600E06BC5 /* U1Login.m */; };
 		82A5A0771604B7B400E06BC5 /* U1AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0761604B7B400E06BC5 /* U1AppDelegate.m */; };
-		82A5A0B21604D58B00E06BC5 /* About dependencies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82A5A0841604D58B00E06BC5 /* About dependencies.txt */; };
 		82A5A0B31604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0881604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		82A5A0B41604D58B00E06BC5 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A08A1604D58B00E06BC5 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		82A5A0B51604D58B00E06BC5 /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A08C1604D58B00E06BC5 /* NSURL+Base.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -32,7 +31,6 @@
 		82A5A0C01604D58B00E06BC5 /* OAProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0A31604D58B00E06BC5 /* OAProblem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		82A5A0C11604D58B00E06BC5 /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0A51604D58B00E06BC5 /* OARequestParameter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		82A5A0C21604D58B00E06BC5 /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0A71604D58B00E06BC5 /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0C31604D58B00E06BC5 /* OATestServer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 82A5A0A91604D58B00E06BC5 /* OATestServer.rb */; };
 		82A5A0C41604D58B00E06BC5 /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0AB1604D58B00E06BC5 /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		82A5A0C51604D58B00E06BC5 /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0AD1604D58B00E06BC5 /* OATokenManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		82A5A0C61604D58B00E06BC5 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0B11604D58B00E06BC5 /* SSKeychain.m */; };
@@ -41,6 +39,8 @@
 		82A5A0D51604E1DA00E06BC5 /* U1IconOverlayLionAndML.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0D41604E1DA00E06BC5 /* U1IconOverlayLionAndML.m */; };
 		82A5A1091604E77200E06BC5 /* U1IconOverlayUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */; };
 		82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */; };
+		82C197BC1605E4B000BE69A5 /* U1ContextMenuHookML.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BB1605E4B000BE69A5 /* U1ContextMenuHookML.m */; };
+		82C197C01605ECED00BE69A5 /* U1ContextMenuUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +140,10 @@
 		82A5A1071604E77200E06BC5 /* U1IconOverlayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1IconOverlayUtils.h; sourceTree = "<group>"; };
 		82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1IconOverlayUtils.m; sourceTree = "<group>"; };
 		82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "u1-synced-emblem.png"; path = "Resources/u1-synced-emblem.png"; sourceTree = SOURCE_ROOT; };
+		82C197BA1605E4B000BE69A5 /* U1ContextMenuHookML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuHookML.h; sourceTree = "<group>"; };
+		82C197BB1605E4B000BE69A5 /* U1ContextMenuHookML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1ContextMenuHookML.m; sourceTree = "<group>"; };
+		82C197BE1605ECED00BE69A5 /* U1ContextMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuUtils.h; sourceTree = "<group>"; };
+		82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = U1ContextMenuUtils.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,14 +195,7 @@
 		8223BE871603515B00501BA6 /* U1 Finder Plugin */ = {
 			isa = PBXGroup;
 			children = (
-				8223BE931603534700501BA6 /* U1Main.h */,
-				8223BE941603534700501BA6 /* U1Main.m */,
-				82A5A0751604B7B400E06BC5 /* U1AppDelegate.h */,
-				82A5A0761604B7B400E06BC5 /* U1AppDelegate.m */,
-				82A5A0CA1604E03E00E06BC5 /* Hook */,
-				82A5A0CE1604E07800E06BC5 /* Resources Access */,
-				8223BEAE1603731F00501BA6 /* U1 Files API */,
-				82A5A0D21604E1A300E06BC5 /* Icon Overlay (Lion & Mountail Lion) */,
+				82C197B71605E3A000BE69A5 /* Classes */,
 				82A5A0EA1604E5CB00E06BC5 /* Finder Headers */,
 				82A5A10A1604EC3E00E06BC5 /* Resources */,
 			);
@@ -387,6 +384,41 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		82C197B71605E3A000BE69A5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8223BE931603534700501BA6 /* U1Main.h */,
+				8223BE941603534700501BA6 /* U1Main.m */,
+				82A5A0751604B7B400E06BC5 /* U1AppDelegate.h */,
+				82A5A0761604B7B400E06BC5 /* U1AppDelegate.m */,
+				82A5A0CA1604E03E00E06BC5 /* Hook */,
+				82A5A0CE1604E07800E06BC5 /* Resources Access */,
+				8223BEAE1603731F00501BA6 /* U1 Files API */,
+				82A5A0D21604E1A300E06BC5 /* Icon Overlay (Lion & Mountail Lion) */,
+				82C197BD1605EC9F00BE69A5 /* Context Menu */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		82C197B91605E3B100BE69A5 /* Mountain Lion */ = {
+			isa = PBXGroup;
+			children = (
+				82C197BA1605E4B000BE69A5 /* U1ContextMenuHookML.h */,
+				82C197BB1605E4B000BE69A5 /* U1ContextMenuHookML.m */,
+			);
+			name = "Mountain Lion";
+			sourceTree = "<group>";
+		};
+		82C197BD1605EC9F00BE69A5 /* Context Menu */ = {
+			isa = PBXGroup;
+			children = (
+				82C197B91605E3B100BE69A5 /* Mountain Lion */,
+				82C197BE1605ECED00BE69A5 /* U1ContextMenuUtils.h */,
+				82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */,
+			);
+			name = "Context Menu";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,8 +472,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A5A0B21604D58B00E06BC5 /* About dependencies.txt in Resources */,
-				82A5A0C31604D58B00E06BC5 /* OATestServer.rb in Resources */,
 				82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +527,8 @@
 				82A5A0D11604E0A300E06BC5 /* U1Resources.m in Sources */,
 				82A5A0D51604E1DA00E06BC5 /* U1IconOverlayLionAndML.m in Sources */,
 				82A5A1091604E77200E06BC5 /* U1IconOverlayUtils.m in Sources */,
+				82C197BC1605E4B000BE69A5 /* U1ContextMenuHookML.m in Sources */,
+				82C197C01605ECED00BE69A5 /* U1ContextMenuUtils.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
