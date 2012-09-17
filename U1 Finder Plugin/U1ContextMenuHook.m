@@ -15,15 +15,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
-#import "U1ContextMenuHookML.h"
+#import "U1ContextMenuHook.h"
 #import "U1ContextMenuUtils.h"
 #import "CDStructures.h"
 #import "FINode-FINodeAdditions.h"
 #import "TContextMenu.h"
 
-@implementation NSObject (U1ContextMenuHookML)
+@implementation NSObject (U1ContextMenuHook)
 
-+ (void)U1ContextMenuHook_TContextMenu_handleContextMenuCommon:(unsigned int)arg1 nodes:(const struct TFENodeVector *)arg2 event:(id)arg3 view:(id)arg4 browserController:(id)arg5 addPlugIns:(BOOL)arg6
+
++ (void)U1ContextMenuHook_TContextMenu_handleContextMenuCommon:(unsigned int)arg1 nodes:(const struct TFENodeVector *)arg2 event:(id)arg3 view:(id)arg4 windowController:(id)arg5 addPlugIns:(BOOL)arg6  // Lion
+{
+    // Save the list of selected files to use it in [self U1ContextMenuHook_TContextMenu_addViewSpecificStuffToMenu:browserViewController:context:]
+    U1ContextMenuUtils *contexMenuUtils = [U1ContextMenuUtils sharedInstance];
+    contexMenuUtils.menuItems = (NSMutableArray *)[contexMenuUtils pathsForNodes:arg2];
+    
+    [self U1ContextMenuHook_TContextMenu_handleContextMenuCommon:arg1 nodes:arg2 event:arg3 view:arg4 windowController:arg5 addPlugIns:arg6];
+}
+
++ (void)U1ContextMenuHook_TContextMenu_handleContextMenuCommon:(unsigned int)arg1 nodes:(const struct TFENodeVector *)arg2 event:(id)arg3 view:(id)arg4 browserController:(id)arg5 addPlugIns:(BOOL)arg6 // Mountain Lion
 {
     // Save the list of selected files to use it in [self U1ContextMenuHook_TContextMenu_addViewSpecificStuffToMenu:browserViewController:context:]
     U1ContextMenuUtils *contexMenuUtils = [U1ContextMenuUtils sharedInstance];
@@ -44,7 +54,18 @@
     }
 }
 
-- (void)U1ContextMenuHook_TContextMenu_configureWithNodes:(const struct TFENodeVector *)arg1 browserController:(id)arg2 container:(BOOL)arg3
+- (void)U1ContextMenuHook_TContextMenu_configureWithNodes:(const struct TFENodeVector *)arg1 windowController:(id)arg2 container:(BOOL)arg3  // Lion
+{
+    [self U1ContextMenuHook_TContextMenu_configureWithNodes:arg1 windowController:arg2 container:arg3];
+    
+    TContextMenu *realSelf = (TContextMenu *)self;
+    U1ContextMenuUtils *contexMenuUtils = [U1ContextMenuUtils sharedInstance];
+    
+    NSArray *selectedItems = [contexMenuUtils pathsForNodes:arg1];
+    [contexMenuUtils addU1OptionsInMenu:realSelf forPaths:selectedItems];
+}
+
+- (void)U1ContextMenuHook_TContextMenu_configureWithNodes:(const struct TFENodeVector *)arg1 browserController:(id)arg2 container:(BOOL)arg3 // Mountain Lion
 {    
     [self U1ContextMenuHook_TContextMenu_configureWithNodes:arg1 browserController:arg2 container:arg3];
     

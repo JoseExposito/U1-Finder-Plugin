@@ -19,7 +19,7 @@
 #import "TIconAndTextCell.h"
 #import "CDStructures.h"
 
-@interface NSObject (U1IconOverlayLionAndML)
+@interface NSObject (U1IconOverlayHook)
 
     /*!
      Adds icon overlay in icons mode.

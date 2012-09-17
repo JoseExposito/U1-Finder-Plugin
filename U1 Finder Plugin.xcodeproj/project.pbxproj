@@ -36,10 +36,10 @@
 		82A5A0C61604D58B00E06BC5 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0B11604D58B00E06BC5 /* SSKeychain.m */; };
 		82A5A0CD1604E04C00E06BC5 /* U1Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0CC1604E04C00E06BC5 /* U1Hook.m */; };
 		82A5A0D11604E0A300E06BC5 /* U1Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0D01604E0A300E06BC5 /* U1Resources.m */; };
-		82A5A0D51604E1DA00E06BC5 /* U1IconOverlayLionAndML.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0D41604E1DA00E06BC5 /* U1IconOverlayLionAndML.m */; };
+		82A5A0D51604E1DA00E06BC5 /* U1IconOverlayHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0D41604E1DA00E06BC5 /* U1IconOverlayHook.m */; };
 		82A5A1091604E77200E06BC5 /* U1IconOverlayUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */; };
 		82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */; };
-		82C197BC1605E4B000BE69A5 /* U1ContextMenuHookML.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BB1605E4B000BE69A5 /* U1ContextMenuHookML.m */; };
+		82C197BC1605E4B000BE69A5 /* U1ContextMenuHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */; };
 		82C197C01605ECED00BE69A5 /* U1ContextMenuUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */; };
 /* End PBXBuildFile section */
 
@@ -109,8 +109,8 @@
 		82A5A0CC1604E04C00E06BC5 /* U1Hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Hook.m; sourceTree = "<group>"; };
 		82A5A0CF1604E0A300E06BC5 /* U1Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Resources.h; sourceTree = "<group>"; };
 		82A5A0D01604E0A300E06BC5 /* U1Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Resources.m; sourceTree = "<group>"; };
-		82A5A0D31604E1DA00E06BC5 /* U1IconOverlayLionAndML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1IconOverlayLionAndML.h; sourceTree = "<group>"; };
-		82A5A0D41604E1DA00E06BC5 /* U1IconOverlayLionAndML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1IconOverlayLionAndML.m; sourceTree = "<group>"; };
+		82A5A0D31604E1DA00E06BC5 /* U1IconOverlayHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1IconOverlayHook.h; sourceTree = "<group>"; };
+		82A5A0D41604E1DA00E06BC5 /* U1IconOverlayHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1IconOverlayHook.m; sourceTree = "<group>"; };
 		82A5A0EB1604E5CB00E06BC5 /* QLPreviewItem-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QLPreviewItem-Protocol.h"; sourceTree = "<group>"; };
 		82A5A0EC1604E5CB00E06BC5 /* TBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBrowserViewController.h; sourceTree = "<group>"; };
 		82A5A0ED1604E5CB00E06BC5 /* TContextMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TContextMenu.h; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 		82A5A1071604E77200E06BC5 /* U1IconOverlayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1IconOverlayUtils.h; sourceTree = "<group>"; };
 		82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1IconOverlayUtils.m; sourceTree = "<group>"; };
 		82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "u1-synced-emblem.png"; path = "Resources/u1-synced-emblem.png"; sourceTree = SOURCE_ROOT; };
-		82C197BA1605E4B000BE69A5 /* U1ContextMenuHookML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuHookML.h; sourceTree = "<group>"; };
-		82C197BB1605E4B000BE69A5 /* U1ContextMenuHookML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1ContextMenuHookML.m; sourceTree = "<group>"; };
+		82C197BA1605E4B000BE69A5 /* U1ContextMenuHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuHook.h; sourceTree = "<group>"; };
+		82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1ContextMenuHook.m; sourceTree = "<group>"; };
 		82C197BE1605ECED00BE69A5 /* U1ContextMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuUtils.h; sourceTree = "<group>"; };
 		82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = U1ContextMenuUtils.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,15 +324,15 @@
 			name = "Resources Access";
 			sourceTree = "<group>";
 		};
-		82A5A0D21604E1A300E06BC5 /* Icon Overlay (Lion & Mountail Lion) */ = {
+		82A5A0D21604E1A300E06BC5 /* Icon Overlay */ = {
 			isa = PBXGroup;
 			children = (
-				82A5A0D31604E1DA00E06BC5 /* U1IconOverlayLionAndML.h */,
-				82A5A0D41604E1DA00E06BC5 /* U1IconOverlayLionAndML.m */,
+				82A5A0D31604E1DA00E06BC5 /* U1IconOverlayHook.h */,
+				82A5A0D41604E1DA00E06BC5 /* U1IconOverlayHook.m */,
 				82A5A1071604E77200E06BC5 /* U1IconOverlayUtils.h */,
 				82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */,
 			);
-			name = "Icon Overlay (Lion & Mountail Lion)";
+			name = "Icon Overlay";
 			sourceTree = "<group>";
 		};
 		82A5A0EA1604E5CB00E06BC5 /* Finder Headers */ = {
@@ -394,25 +394,17 @@
 				82A5A0CA1604E03E00E06BC5 /* Hook */,
 				82A5A0CE1604E07800E06BC5 /* Resources Access */,
 				8223BEAE1603731F00501BA6 /* U1 Files API */,
-				82A5A0D21604E1A300E06BC5 /* Icon Overlay (Lion & Mountail Lion) */,
+				82A5A0D21604E1A300E06BC5 /* Icon Overlay */,
 				82C197BD1605EC9F00BE69A5 /* Context Menu */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		82C197B91605E3B100BE69A5 /* Mountain Lion */ = {
-			isa = PBXGroup;
-			children = (
-				82C197BA1605E4B000BE69A5 /* U1ContextMenuHookML.h */,
-				82C197BB1605E4B000BE69A5 /* U1ContextMenuHookML.m */,
-			);
-			name = "Mountain Lion";
-			sourceTree = "<group>";
-		};
 		82C197BD1605EC9F00BE69A5 /* Context Menu */ = {
 			isa = PBXGroup;
 			children = (
-				82C197B91605E3B100BE69A5 /* Mountain Lion */,
+				82C197BA1605E4B000BE69A5 /* U1ContextMenuHook.h */,
+				82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */,
 				82C197BE1605ECED00BE69A5 /* U1ContextMenuUtils.h */,
 				82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */,
 			);
@@ -525,9 +517,9 @@
 				82A5A0731604B05600E06BC5 /* U1Login.m in Sources */,
 				82A5A0CD1604E04C00E06BC5 /* U1Hook.m in Sources */,
 				82A5A0D11604E0A300E06BC5 /* U1Resources.m in Sources */,
-				82A5A0D51604E1DA00E06BC5 /* U1IconOverlayLionAndML.m in Sources */,
+				82A5A0D51604E1DA00E06BC5 /* U1IconOverlayHook.m in Sources */,
 				82A5A1091604E77200E06BC5 /* U1IconOverlayUtils.m in Sources */,
-				82C197BC1605E4B000BE69A5 /* U1ContextMenuHookML.m in Sources */,
+				82C197BC1605E4B000BE69A5 /* U1ContextMenuHook.m in Sources */,
 				82C197C01605ECED00BE69A5 /* U1ContextMenuUtils.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

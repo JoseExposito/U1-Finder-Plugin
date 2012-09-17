@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
-#import "U1IconOverlayLionAndML.h"
+#import "U1IconOverlayHook.h"
 #import "U1Resources.h"
 #import "U1IconOverlayUtils.h"
 

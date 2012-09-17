@@ -19,17 +19,20 @@
 #import "PFImageKit.h"
 struct TFENodeVector;
 
-@interface NSObject (U1ContextMenuHookML)
+@interface NSObject (U1ContextMenuHook)
 
     /*!
      Modifies the context menu in icons and desktop view.
      */
-    + (void)U1ContextMenuHook_TContextMenu_handleContextMenuCommon:(unsigned int)arg1 nodes:(const struct TFENodeVector *)arg2 event:(id)arg3 view:(id)arg4 browserController:(id)arg5 addPlugIns:(BOOL)arg6;
-    + (void)U1ContextMenuHook_TContextMenu_addViewSpecificStuffToMenu:(id)arg1 browserViewController:(id)arg2 context:(unsigned int)arg3;
+    + (void)U1ContextMenuHook_TContextMenu_handleContextMenuCommon:(unsigned int)arg1 nodes:(const struct TFENodeVector *)arg2 event:(id)arg3 view:(id)arg4 windowController:(id)arg5 addPlugIns:(BOOL)arg6;  // Lion
+    + (void)U1ContextMenuHook_TContextMenu_handleContextMenuCommon:(unsigned int)arg1 nodes:(const struct TFENodeVector *)arg2 event:(id)arg3 view:(id)arg4 browserController:(id)arg5 addPlugIns:(BOOL)arg6; // Mountain Lion
+
+    + (void)U1ContextMenuHook_TContextMenu_addViewSpecificStuffToMenu:(id)arg1 browserViewController:(id)arg2 context:(unsigned int)arg3; // Lion & Mountain Lion
 
     /*!
      Modifies the context menu in list, columns and cover flow modes.
      */
-    - (void)U1ContextMenuHook_TContextMenu_configureWithNodes:(const struct TFENodeVector *)arg1 browserController:(id)arg2 container:(BOOL)arg3;
+    - (void)U1ContextMenuHook_TContextMenu_configureWithNodes:(const struct TFENodeVector *)arg1 windowController:(id)arg2 container:(BOOL)arg3;  // Lion
+    - (void)U1ContextMenuHook_TContextMenu_configureWithNodes:(const struct TFENodeVector *)arg1 browserController:(id)arg2 container:(BOOL)arg3; // Mountain Lion
 
 @end

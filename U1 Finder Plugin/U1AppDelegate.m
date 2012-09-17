@@ -18,9 +18,9 @@
 #import "U1AppDelegate.h"
 #import "U1AccountManager.h"
 #import "U1Hook.h"
-#import "U1IconOverlayLionAndML.h"
+#import "U1IconOverlayHook.h"
 #import "U1IconOverlayUtils.h"
-#import "U1ContextMenuHookML.h"
+#import "U1ContextMenuHook.h"
 
 @interface U1AppDelegate ()
 
@@ -67,15 +67,19 @@
 
     NSLog(@"Hooking Finder to show icon overlay and personalize the context menu");
     
-    // Icon overlay (Lion & Mountain Lion)
-    [U1Hook hookMethod:@selector(drawImage:) inClass:@"TIconViewCell" toCallToTheNewMethod:@selector(U1IconOverlayHook_TIconViewCell_drawImage:)];
-    [U1Hook hookMethod:@selector(drawIconWithFrame:) inClass:@"TListViewIconAndTextCell" toCallToTheNewMethod:@selector(U1IconOverlayHook_TListViewIconAndTextCell_drawIconWithFrame:)];
+    // Icon overlay
+    [U1Hook hookMethod:@selector(drawImage:) inClass:@"TIconViewCell" toCallToTheNewMethod:@selector(U1IconOverlayHook_TIconViewCell_drawImage:)]; // Lion & Mountain Lion
+    [U1Hook hookMethod:@selector(drawIconWithFrame:) inClass:@"TListViewIconAndTextCell" toCallToTheNewMethod:@selector(U1IconOverlayHook_TListViewIconAndTextCell_drawIconWithFrame:)]; // Lion & Mountain Lion
     
-    // Context menu (Mountain Lion)
-    [U1Hook hookClassMethod:@selector(handleContextMenuCommon:nodes:event:view:browserController:addPlugIns:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_handleContextMenuCommon:nodes:event:view:browserController:addPlugIns:)];
-    [U1Hook hookClassMethod:@selector(addViewSpecificStuffToMenu:browserViewController:context:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_addViewSpecificStuffToMenu:browserViewController:context:)];
-    [U1Hook hookMethod:@selector(configureWithNodes:windowController:container:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_configureWithNodes:windowController:container:)];
-    [U1Hook hookMethod:@selector(configureWithNodes:browserController:container:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_configureWithNodes:browserController:container:)];
+    // Context menu
+    [U1Hook hookClassMethod:@selector(addViewSpecificStuffToMenu:browserViewController:context:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_addViewSpecificStuffToMenu:browserViewController:context:)]; // Lion & Mountain Lion
+
+    [U1Hook hookClassMethod:@selector(handleContextMenuCommon:nodes:event:view:windowController:addPlugIns:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_handleContextMenuCommon:nodes:event:view:windowController:addPlugIns:)]; // Lion
+    [U1Hook hookMethod:@selector(configureWithNodes:windowController:container:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_configureWithNodes:windowController:container:)]; // Lion
+    
+    [U1Hook hookClassMethod:@selector(handleContextMenuCommon:nodes:event:view:browserController:addPlugIns:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_handleContextMenuCommon:nodes:event:view:browserController:addPlugIns:)]; // Mountain Lion
+    [U1Hook hookMethod:@selector(configureWithNodes:browserController:container:) inClass:@"TContextMenu" toCallToTheNewMethod:@selector(U1ContextMenuHook_TContextMenu_configureWithNodes:browserController:container:)]; // Mountain Lion
+    
 }
 
 
