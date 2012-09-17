@@ -40,6 +40,15 @@ class TFENode4Vector : public std::vector<TFENode4> { };
 // }
 
 
+@interface U1ContextMenuUtils ()
+
+    /*!
+     Returns the index where put the Ubuntu One menu depending of the selected items.
+     */
+    - (NSInteger)menuIndexForPaths:(NSArray /*NSString*/ *)selectedItems;
+
+@end
+
 
 @implementation U1ContextMenuUtils
 @synthesize menuItems = _menuItems;
@@ -70,23 +79,29 @@ class TFENode4Vector : public std::vector<TFENode4> { };
 
 - (void)addU1OptionsInMenu:(TContextMenu *)menu forPaths:(NSArray /*NSString*/ *)selectedItems
 {
-    NSLog(@"Selected items: %@", selectedItems);
-
     // Add the Ubuntu One menu
-    NSMenuItem *u1MainMenu = [menu insertItemWithTitle:@"Ubuntu One" action:nil keyEquivalent:@"U1" atIndex:3];
+    NSInteger separatorIndex = [self menuIndexForPaths:selectedItems];
+    NSInteger menuIndex = separatorIndex + 1;
+    
+    [menu insertItem:[NSMenuItem separatorItem] atIndex:separatorIndex];
+    NSMenuItem *mainMenu = [menu insertItemWithTitle:@"Ubuntu One" action:nil keyEquivalent:@"U1" atIndex:menuIndex];
 
     // Create and add the Ubuntu One submenu
     NSMenu *submenu = [[NSMenu alloc] init];
     NSMenuItem *synchronizeItem = [submenu addItemWithTitle:NSLocalizedString(@"Stop Synchronizing This Folder", nil) action:@selector(u1SynchronizeMenuClicked:) keyEquivalent:@"U1-Synchronize"];
     NSMenuItem *publishItem = [submenu addItemWithTitle:NSLocalizedString(@"Publish", nil) action:@selector(u1PublishMenuClicked:) keyEquivalent:@"U1-Publish"];
     NSMenuItem *linkItem = [submenu addItemWithTitle:NSLocalizedString(@"Copy Web Link", nil) action:@selector(u1LinkMenuClicked:) keyEquivalent:@"U1-Link"];
-    [u1MainMenu setSubmenu:submenu];
     
-    // Enable or dissable the submenu options
-    [synchronizeItem setEnabled:YES];
-    [publishItem setEnabled:YES];
-    [linkItem setEnabled:YES];
-    [u1MainMenu setEnabled:YES];
+    [synchronizeItem setTarget:self];
+    [publishItem setTarget:self];
+    [linkItem setTarget:self];
+    
+    [mainMenu setSubmenu:submenu];
+    
+    // Enable or dissable the context menu options
+    if (selectedItems.count > 1) {
+        [mainMenu setEnabled:NO];
+    }
 }
 
 
@@ -106,6 +121,42 @@ class TFENode4Vector : public std::vector<TFENode4> { };
 - (void)u1LinkMenuClicked:(id)param
 {
     NSLog(@"LINK MENU CLICKED");
+}
+
+
+#pragma mark Private Methods
+
+
+- (NSInteger)menuIndexForPaths:(NSArray /*NSString*/ *)selectedItems
+{
+    NSInteger menuIndex;
+    
+    if (selectedItems.count > 1) {
+        // The menu must be showed in different index if the selection contains files or only folders
+        BOOL containsFiles = NO;
+        for (NSString *path in selectedItems) {
+            BOOL isDirectory;
+            [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDirectory];
+            
+            if (!isDirectory) {
+                containsFiles = YES;
+                break;
+            }
+        }
+        
+        menuIndex = containsFiles ? 5 : 2;
+        
+    } else {
+        BOOL isDirectory;
+        [[NSFileManager defaultManager] fileExistsAtPath:[selectedItems objectAtIndex:0] isDirectory:&isDirectory];
+        
+        if (isDirectory && ![[NSWorkspace sharedWorkspace] isFilePackageAtPath:[selectedItems objectAtIndex:0]])
+            menuIndex = 2;
+        else
+            menuIndex = 3;
+    }
+    
+    return menuIndex;
 }
 
 @end
