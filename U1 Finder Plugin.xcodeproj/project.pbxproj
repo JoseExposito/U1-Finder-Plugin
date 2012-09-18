@@ -13,6 +13,7 @@
 		8223BE951603534700501BA6 /* U1Main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BE941603534700501BA6 /* U1Main.m */; };
 		8223BEA916036F4900501BA6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8223BEA816036F4900501BA6 /* Security.framework */; };
 		8223BEB41603742E00501BA6 /* U1AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BEB31603742E00501BA6 /* U1AccountManager.m */; };
+		828283251608CFD500E8474C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 828283271608CFD500E8474C /* Localizable.strings */; };
 		82A5A0731604B05600E06BC5 /* U1Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0721604B05600E06BC5 /* U1Login.m */; };
 		82A5A0771604B7B400E06BC5 /* U1AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0761604B7B400E06BC5 /* U1AppDelegate.m */; };
 		82A5A0B31604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0881604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -59,6 +60,8 @@
 		8223BEA816036F4900501BA6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8223BEB21603742E00501BA6 /* U1AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1AccountManager.h; sourceTree = "<group>"; };
 		8223BEB31603742E00501BA6 /* U1AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1AccountManager.m; sourceTree = "<group>"; };
+		828283261608CFD500E8474C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		828283281608CFE100E8474C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82A5A0711604B05600E06BC5 /* U1Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Login.h; sourceTree = "<group>"; };
 		82A5A0721604B05600E06BC5 /* U1Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Login.m; sourceTree = "<group>"; };
 		82A5A0751604B7B400E06BC5 /* U1AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1AppDelegate.h; sourceTree = "<group>"; };
@@ -380,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */,
+				828283271608CFD500E8474C /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -465,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */,
+				828283251608CFD500E8474C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +530,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		828283271608CFD500E8474C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				828283261608CFD500E8474C /* en */,
+				828283281608CFE100E8474C /* es */,
+			);
+			name = Localizable.strings;
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8223BE8E1603515B00501BA6 /* Debug */ = {

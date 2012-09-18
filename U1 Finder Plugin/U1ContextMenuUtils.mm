@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 #import "U1ContextMenuUtils.h"
+#import "U1Resources.h"
 #import "CDStructures.h"
 #import "TContextMenu.h"
 #import "FINode-FINodeAdditions.h"
@@ -88,9 +89,9 @@ class TFENode4Vector : public std::vector<TFENode4> { };
 
     // Create and add the Ubuntu One submenu
     NSMenu *submenu = [[NSMenu alloc] init];
-    NSMenuItem *synchronizeItem = [submenu addItemWithTitle:NSLocalizedString(@"Stop Synchronizing This Folder", nil) action:@selector(u1SynchronizeMenuClicked:) keyEquivalent:@"U1-Synchronize"];
-    NSMenuItem *publishItem = [submenu addItemWithTitle:NSLocalizedString(@"Publish", nil) action:@selector(u1PublishMenuClicked:) keyEquivalent:@"U1-Publish"];
-    NSMenuItem *linkItem = [submenu addItemWithTitle:NSLocalizedString(@"Copy Web Link", nil) action:@selector(u1LinkMenuClicked:) keyEquivalent:@"U1-Link"];
+    NSMenuItem *synchronizeItem = [submenu addItemWithTitle:U1LocalizedString(@"Stop Synchronizing This Folder") action:@selector(u1SynchronizeMenuClicked:) keyEquivalent:@"U1-Synchronize"];
+    NSMenuItem *publishItem = [submenu addItemWithTitle:U1LocalizedString(@"Publish") action:@selector(u1PublishMenuClicked:) keyEquivalent:@"U1-Publish"];    
+    NSMenuItem *linkItem = [submenu addItemWithTitle:U1LocalizedString(@"Copy Web Link") action:@selector(u1LinkMenuClicked:) keyEquivalent:@"U1-Link"];
     
     [synchronizeItem setTarget:self];
     [publishItem setTarget:self];
