@@ -21,6 +21,7 @@
 #import "U1IconOverlayHook.h"
 #import "U1IconOverlayUtils.h"
 #import "U1ContextMenuHook.h"
+#import "U1Resources.h"
 
 @interface U1AppDelegate ()
 
@@ -63,6 +64,10 @@
     
     // Store the volume list in the U1IconOverlayUtils class
     [U1IconOverlayUtils sharedInstance].volumesToSynchronize = volumes;
+    
+    // Set the U1 folder icon to the ~/Ubuntu One volume
+    NSImage *folderImage = [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-folder.icns"]];
+    [[NSWorkspace sharedWorkspace] setIcon:folderImage forFile:[@"~/Ubuntu One" stringByStandardizingPath] options:0];
     
 
     NSLog(@"Hooking Finder to show icon overlay and personalize the context menu");
