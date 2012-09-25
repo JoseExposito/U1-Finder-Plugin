@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="U1 Finder Injector Terminology">
+	<suite name="U1 Finder Injector Suite" code="UONE" description="U1 Finder Injector Commands">
+		<command name="Load U1 Finder Plugin" code="UONEload" description="Inject U1 into Finder"/>
+	</suite>
+</dictionary>

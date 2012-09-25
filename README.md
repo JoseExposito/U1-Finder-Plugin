@@ -9,10 +9,22 @@ _U1 Finder Plugin_ allows to the **OS X** users to add integration with Ubuntu O
 Compilation and installation:
 =============================
 
-Download and install the latest version of SIMBL:
-http://www.culater.net/dl/files/SIMBL-0.9.9.zip
+Download as zip, clone or fork the U1 Finder Plugin source code, open it with Xcode and build the "U1 Finder Injector" target. This will generate two products: "U1 Finder Plugin.bundle" and "U1 Finder Injector.osax".
+Copy the "U1 Finder Injector.osax" bundle to "/Library/ScriptingAdditions" or "~/Library/ScriptingAdditions" and stop Finder:
 
-Download as zip, clone or fork the U1 Finder Plugin source code, open it with Xcode and build it. The plugin will be automatically loaded.
+    $ osascript -e "tell application \"Finder\" to quit"
+
+Then you will be able to load the U1 Finder Plugin with this Apple script:
+
+    tell application "Finder"
+	delay 1
+	try
+		«event UONEload»
+    	on error msg number num
+    		display dialog "Error loading U1 Finder Plugin"
+    	end try
+    end tell
+
 
 Launch the /Applications/Utilities/Console.app to see the plugin output.
 

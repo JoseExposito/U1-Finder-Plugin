@@ -13,6 +13,7 @@
 		8223BE951603534700501BA6 /* U1Main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BE941603534700501BA6 /* U1Main.m */; };
 		8223BEA916036F4900501BA6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8223BEA816036F4900501BA6 /* Security.framework */; };
 		8223BEB41603742E00501BA6 /* U1AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BEB31603742E00501BA6 /* U1AccountManager.m */; };
+		8268CBEE16125AE100133DA9 /* U1 Finder Plugin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8223BE7E1603515B00501BA6 /* U1 Finder Plugin.bundle */; };
 		828283251608CFD500E8474C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 828283271608CFD500E8474C /* Localizable.strings */; };
 		82917EF6160E72990024B4F5 /* u1-folder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 82917EF5160E72990024B4F5 /* u1-folder.icns */; };
 		82A5A0731604B05600E06BC5 /* U1Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0721604B05600E06BC5 /* U1Login.m */; };
@@ -43,7 +44,20 @@
 		82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */; };
 		82C197BC1605E4B000BE69A5 /* U1ContextMenuHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */; };
 		82C197C01605ECED00BE69A5 /* U1ContextMenuUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */; };
+		82F136FC160F3E7300E4B478 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F136FB160F3E7300E4B478 /* CoreFoundation.framework */; };
+		82F13709160F3FB900E4B478 /* U1FinderInjector.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 82F13708160F3FB900E4B478 /* U1FinderInjector.sdef */; };
+		82F1370D160F44CA00E4B478 /* U1FinderInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F1370C160F44CA00E4B478 /* U1FinderInjector.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8268CBEB16125ABD00133DA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8223BE751603515B00501BA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8223BE7D1603515B00501BA6;
+			remoteInfo = "U1 Finder Plugin";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		820435E31603770100736533 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -149,6 +163,11 @@
 		82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1ContextMenuHook.m; sourceTree = "<group>"; };
 		82C197BE1605ECED00BE69A5 /* U1ContextMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuUtils.h; sourceTree = "<group>"; };
 		82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = U1ContextMenuUtils.mm; sourceTree = "<group>"; };
+		82F136FA160F3E7300E4B478 /* U1 Finder Injector.osax */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "U1 Finder Injector.osax"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82F136FB160F3E7300E4B478 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		82F136FF160F3E7300E4B478 /* U1 Finder Injector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "U1 Finder Injector-Info.plist"; sourceTree = "<group>"; };
+		82F13708160F3FB900E4B478 /* U1FinderInjector.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = U1FinderInjector.sdef; path = Resources/U1FinderInjector.sdef; sourceTree = SOURCE_ROOT; };
+		82F1370C160F44CA00E4B478 /* U1FinderInjector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1FinderInjector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +181,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82F136F7160F3E7300E4B478 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82F136FC160F3E7300E4B478 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -169,8 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				8223BE871603515B00501BA6 /* U1 Finder Plugin */,
+				82F136FD160F3E7300E4B478 /* U1 Finder Injector */,
 				82A5A0831604D58B00E06BC5 /* Third-Party */,
-				8223BE881603515B00501BA6 /* Supporting Files */,
 				8223BE801603515B00501BA6 /* Frameworks */,
 				8223BE7F1603515B00501BA6 /* Products */,
 			);
@@ -180,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				8223BE7E1603515B00501BA6 /* U1 Finder Plugin.bundle */,
+				82F136FA160F3E7300E4B478 /* U1 Finder Injector.osax */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,6 +219,7 @@
 				8223BE841603515B00501BA6 /* AppKit.framework */,
 				8223BE851603515B00501BA6 /* CoreData.framework */,
 				8223BE861603515B00501BA6 /* Foundation.framework */,
+				82F136FB160F3E7300E4B478 /* CoreFoundation.framework */,
 				8223BEA816036F4900501BA6 /* Security.framework */,
 				820435E31603770100736533 /* libxml2.dylib */,
 			);
@@ -200,9 +229,10 @@
 		8223BE871603515B00501BA6 /* U1 Finder Plugin */ = {
 			isa = PBXGroup;
 			children = (
-				82C197B71605E3A000BE69A5 /* Classes */,
+				82C197B71605E3A000BE69A5 /* Source */,
 				82A5A0EA1604E5CB00E06BC5 /* Finder Headers */,
 				82A5A10A1604EC3E00E06BC5 /* Resources */,
+				8223BE881603515B00501BA6 /* Supporting Files */,
 			);
 			path = "U1 Finder Plugin";
 			sourceTree = "<group>";
@@ -214,7 +244,6 @@
 				8223BE8D1603515B00501BA6 /* U1 Finder Plugin-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			path = "U1 Finder Plugin";
 			sourceTree = "<group>";
 		};
 		8223BEAE1603731F00501BA6 /* U1 Files API */ = {
@@ -391,7 +420,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		82C197B71605E3A000BE69A5 /* Classes */ = {
+		82C197B71605E3A000BE69A5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				8223BE931603534700501BA6 /* U1Main.h */,
@@ -404,7 +433,7 @@
 				82A5A0D21604E1A300E06BC5 /* Icon Overlay */,
 				82C197BD1605EC9F00BE69A5 /* Context Menu */,
 			);
-			name = Classes;
+			name = Source;
 			sourceTree = "<group>";
 		};
 		82C197BD1605EC9F00BE69A5 /* Context Menu */ = {
@@ -418,6 +447,40 @@
 			name = "Context Menu";
 			sourceTree = "<group>";
 		};
+		82F136FD160F3E7300E4B478 /* U1 Finder Injector */ = {
+			isa = PBXGroup;
+			children = (
+				82F1370A160F444900E4B478 /* Source */,
+				82F13707160F3FA700E4B478 /* Resources */,
+				82F136FE160F3E7300E4B478 /* Supporting Files */,
+			);
+			path = "U1 Finder Injector";
+			sourceTree = "<group>";
+		};
+		82F136FE160F3E7300E4B478 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				82F136FF160F3E7300E4B478 /* U1 Finder Injector-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82F13707160F3FA700E4B478 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82F13708160F3FB900E4B478 /* U1FinderInjector.sdef */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		82F1370A160F444900E4B478 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				82F1370C160F44CA00E4B478 /* U1FinderInjector.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,7 +491,6 @@
 				8223BE7A1603515B00501BA6 /* Sources */,
 				8223BE7B1603515B00501BA6 /* Frameworks */,
 				8223BE7C1603515B00501BA6 /* Resources */,
-				8223BE9C160357EA00501BA6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -437,6 +499,24 @@
 			name = "U1 Finder Plugin";
 			productName = "U1 Finder Plugin";
 			productReference = 8223BE7E1603515B00501BA6 /* U1 Finder Plugin.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		82F136F9160F3E7300E4B478 /* U1 Finder Injector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82F13704160F3E7300E4B478 /* Build configuration list for PBXNativeTarget "U1 Finder Injector" */;
+			buildPhases = (
+				82F136F6160F3E7300E4B478 /* Sources */,
+				82F136F7160F3E7300E4B478 /* Frameworks */,
+				82F136F8160F3E7300E4B478 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8268CBEC16125ABD00133DA9 /* PBXTargetDependency */,
+			);
+			name = "U1 Finder Injector";
+			productName = "U1 Finder Injector";
+			productReference = 82F136FA160F3E7300E4B478 /* U1 Finder Injector.osax */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -462,6 +542,7 @@
 			projectRoot = "";
 			targets = (
 				8223BE7D1603515B00501BA6 /* U1 Finder Plugin */,
+				82F136F9160F3E7300E4B478 /* U1 Finder Injector */,
 			);
 		};
 /* End PBXProject section */
@@ -477,23 +558,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8223BE9C160357EA00501BA6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+		82F136F8160F3E7300E4B478 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
+				82F13709160F3FB900E4B478 /* U1FinderInjector.sdef in Resources */,
+				8268CBEE16125AE100133DA9 /* U1 Finder Plugin.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script copies the generated Bundle in the SIMBL bundles path and restarts Finder to load it\n# Launch /Applications/Utilities/Console.app to see the plugin output\n\ncp -fr \"${BUILT_PRODUCTS_DIR}/${PROJECT_NAME}.bundle\" \"/Library/Application Support/SIMBL/Plugins\"\nkillall -9 Finder\n";
 		};
-/* End PBXShellScriptBuildPhase section */
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8223BE7A1603515B00501BA6 /* Sources */ = {
@@ -533,7 +607,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82F136F6160F3E7300E4B478 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82F1370D160F44CA00E4B478 /* U1FinderInjector.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8268CBEC16125ABD00133DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8223BE7D1603515B00501BA6 /* U1 Finder Plugin */;
+			targetProxy = 8268CBEB16125ABD00133DA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		828283271608CFD500E8474C /* Localizable.strings */ = {
@@ -644,6 +734,37 @@
 			};
 			name = Release;
 		};
+		82F13705160F3E7300E4B478 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "U1 Finder Injector/U1 Finder Injector-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = osax;
+			};
+			name = Debug;
+		};
+		82F13706160F3E7300E4B478 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "U1 Finder Injector/U1 Finder Injector-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = osax;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,6 +782,15 @@
 			buildConfigurations = (
 				8223BE911603515B00501BA6 /* Debug */,
 				8223BE921603515B00501BA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82F13704160F3E7300E4B478 /* Build configuration list for PBXNativeTarget "U1 Finder Injector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82F13705160F3E7300E4B478 /* Debug */,
+				82F13706160F3E7300E4B478 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
