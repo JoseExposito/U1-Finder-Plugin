@@ -20,7 +20,7 @@
 @interface U1Main : NSObject
 
     /*!
-     SIMBL main function. All begins here...
+     Main function. All begins here...
      */
     + (void)load;
 

@@ -47,7 +47,7 @@
         
         // Draw the icon overlay over the real icon
         [icon lockFocus];
-        [iconOverlay drawInRect:NSMakeRect(0, 0, 32, 32) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+        [iconOverlay drawInRect:NSMakeRect(0, 0, icon.size.width/2, icon.size.height/2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
         [icon unlockFocus];
         
         // Return the composed icon
@@ -69,7 +69,7 @@
     // Draw the icon overlay if necessary
     if ([[U1IconOverlayUtils sharedInstance] mustDrawIconOverlayOverFileAtPath:filePath]) {
         NSImage *iconOverlay = [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-synced-emblem.png"]];
-        [iconOverlay drawInRect:NSMakeRect(arg1.origin.x, arg1.origin.y, arg1.size.height, arg1.size.height) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+        [iconOverlay drawInRect:NSMakeRect(arg1.origin.x, arg1.origin.y+arg1.size.height/4, 3*arg1.size.height/4, 3*arg1.size.height/4) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
     }
 }
 

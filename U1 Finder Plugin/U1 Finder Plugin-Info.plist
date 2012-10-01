@@ -26,16 +26,5 @@
 	<string>Copyright © 2012 José Expósito. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
-    <key>SIMBLTargetApplications</key>
-	<array>
-		<dict>
-			<key>BundleIdentifier</key>
-			<string>com.apple.finder</string>
-			<key>MinBundleVersion</key>
-			<string>10.7.2</string>
-			<key>MaxBundleVersion</key>
-			<string>10.8</string>
-		</dict>
-	</array>
 </dict>
 </plist>
