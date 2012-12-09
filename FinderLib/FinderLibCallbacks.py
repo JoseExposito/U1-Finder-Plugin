@@ -19,9 +19,36 @@
 
 import os
 
+# Volume List
 def volume_list(folders):
-    volumes_json = '{ type:"volumeList" volumes: { \n\t{ volume:"' + os.path.expanduser('~/Ubuntu One') + '" subscribed:"YES" }'
+    volumes_json = '{ type:"volume_list" volumes: { \n\t{ volume:"' + os.path.expanduser('~/Ubuntu One') + '" subscribed:"YES" }'
     for folder in folders:
         volumes_json += ',\n\t{ volume:"' + folder['path'] + '" subscribed:"' + ('YES' if bool(folder['subscribed']) else 'NO') + '" }'
     volumes_json += '\n} }'
     return volumes_json
+
+# File is Synchronizing
+def get_uploads(uploads):
+    return_list = []
+    for upload in uploads:
+        return_list.append(upload['path'])
+    return return_list
+
+def get_downloads(downloads):
+    return_list = []
+    for download in downloads:
+        return_list.append(upload['downloads'])
+    return return_list
+
+# Make File Public
+def change_public_access(info, path):
+    return '{ type:"file_is_public" path:"' + path + '" is_public:"' + ('YES' if bool(info['is_public']) else 'NO') + '" public_url:"' + ('' if not bool(info['public_url']) else info['public_url']) + '" }'
+
+
+# Get Public Link
+def get_public_files(public_files, path):
+    for public_file in public_files:
+        if public_file['path'] == path:
+            return '{ type:"get_public_url" path:"' + path + '" public_url:"' + public_file['public_url'] + '" }'
+        
+    return '{ type:"error" reason:"The file is not public" }'

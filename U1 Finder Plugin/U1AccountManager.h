@@ -29,7 +29,7 @@
     + (U1AccountManager *)sharedInstance;
 
     /*!
-     Reloads the autentication data reading it from the keyhain.
+     Reloads the autentication data reading it from the keychain.
      */
     - (void)reloadDataFromKeychain;
 

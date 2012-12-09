@@ -23,5 +23,8 @@
 @interface FinderLib : NSObject
 
     - (NSString *)volumeList;
+    - (NSString *)fileIsSynchronizing:(NSString *)path;
+    - (NSString *)makeFile:(NSString *)path public:(BOOL)public;
+    - (NSString *)getPublicLinkOfFile:(NSString *)path;
 
 @end
