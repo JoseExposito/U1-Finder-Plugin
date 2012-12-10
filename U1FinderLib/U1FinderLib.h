@@ -20,7 +20,7 @@
 /*!
  Objective-C interface to execute the FinderLib bundle Python code.
  */
-@interface FinderLib : NSObject
+@interface U1FinderLib : NSObject
 
     - (NSString *)volumeList;
     - (NSString *)fileIsSynchronizing:(NSString *)path;

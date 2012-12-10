@@ -29,13 +29,13 @@ NSObject = objc.lookUpClass('NSObject')
 returned_value = ['']
 
 ##
-# Objective-C facade to the methods of the FinderLib.
-class FinderLib(NSObject):
+# Objective-C facade to the methods of the U1FinderLib.
+class U1FinderLib(NSObject):
     
     ##
     # Default constructor.
     def init(self):
-        self = super(FinderLib, self).init()
+        self = super(U1FinderLib, self).init()
         self.sync_daemon_tool = SyncDaemonTool(None)
         return self
     
@@ -137,7 +137,7 @@ def run_action(action, params, sync_daemon_tool):
 
 
 if __name__ == '__main__':
-    py = FinderLib.alloc().init()
+    py = U1FinderLib.alloc().init()
     print py.volumeList()
     #print py.fileIsSynchronizing_("/Users/jose/Ubuntu One/a.mp4")
     #print py.makeFile_public_("/Users/jose/Ubuntu One/Examen.pdf", True)

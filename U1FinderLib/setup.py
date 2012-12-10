@@ -23,7 +23,7 @@
 from setuptools import setup
 
 setup(
-      name='FinderLib',
-      plugin = ['FinderLib.py'],
+      name='U1FinderLib',
+      plugin = ['U1FinderLib.py'],
       options=dict(py2app=dict(extension='.bundle'))
 )

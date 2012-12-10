@@ -1,5 +1,5 @@
 # Xcode
-build/*
+build
 dist
 *.pbxuser
 !default.pbxuser

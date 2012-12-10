@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		82933B1E167588AE0038FCBA /* U1FinderLib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 82933B21167588AE0038FCBA /* Build configuration list for PBXAggregateTarget "U1FinderLib" */;
+			buildPhases = (
+				82933B23167588BE0038FCBA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = U1FinderLib;
+			productName = FinderLib;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		820435E41603770100736533 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 820435E31603770100736533 /* libxml2.dylib */; };
 		82043622160396C300736533 /* U1Volumes.m in Sources */ = {isa = PBXBuildFile; fileRef = 82043621160396C300736533 /* U1Volumes.m */; };
@@ -13,7 +27,6 @@
 		8223BE951603534700501BA6 /* U1Main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BE941603534700501BA6 /* U1Main.m */; };
 		8223BEA916036F4900501BA6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8223BEA816036F4900501BA6 /* Security.framework */; };
 		8223BEB41603742E00501BA6 /* U1AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BEB31603742E00501BA6 /* U1AccountManager.m */; };
-		8257616B1661720B008F1744 /* FinderLibCallbacks.py in Resources */ = {isa = PBXBuildFile; fileRef = 8257616A1661720B008F1744 /* FinderLibCallbacks.py */; };
 		8268CBEE16125AE100133DA9 /* U1 Finder Plugin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8223BE7E1603515B00501BA6 /* U1 Finder Plugin.bundle */; };
 		828283251608CFD500E8474C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 828283271608CFD500E8474C /* Localizable.strings */; };
 		82917EF6160E72990024B4F5 /* u1-folder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 82917EF5160E72990024B4F5 /* u1-folder.icns */; };
@@ -43,6 +56,9 @@
 		82A5A0D51604E1DA00E06BC5 /* U1IconOverlayHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0D41604E1DA00E06BC5 /* U1IconOverlayHook.m */; };
 		82A5A1091604E77200E06BC5 /* U1IconOverlayUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */; };
 		82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */; };
+		82AC7831167592320010D2D9 /* FinderLibCallbacks.py in Resources */ = {isa = PBXBuildFile; fileRef = 82AC74B3167592320010D2D9 /* FinderLibCallbacks.py */; };
+		82AC7832167592320010D2D9 /* setup.py in Resources */ = {isa = PBXBuildFile; fileRef = 82AC74B4167592320010D2D9 /* setup.py */; };
+		82AC7833167592320010D2D9 /* U1FinderLib.py in Resources */ = {isa = PBXBuildFile; fileRef = 82AC74B6167592320010D2D9 /* U1FinderLib.py */; };
 		82C197BC1605E4B000BE69A5 /* U1ContextMenuHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */; };
 		82C197C01605ECED00BE69A5 /* U1ContextMenuUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BF1605ECED00BE69A5 /* U1ContextMenuUtils.mm */; };
 		82F136FC160F3E7300E4B478 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F136FB160F3E7300E4B478 /* CoreFoundation.framework */; };
@@ -51,7 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8268CBEB16125ABD00133DA9 /* PBXContainerItemProxy */ = {
+		82AC7834167592960010D2D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8223BE751603515B00501BA6 /* Project object */;
 			proxyType = 1;
@@ -76,10 +92,6 @@
 		8223BEA816036F4900501BA6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8223BEB21603742E00501BA6 /* U1AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1AccountManager.h; sourceTree = "<group>"; };
 		8223BEB31603742E00501BA6 /* U1AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1AccountManager.m; sourceTree = "<group>"; };
-		8257616416613A09008F1744 /* FinderLib.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = FinderLib.py; path = FinderLib/FinderLib.py; sourceTree = "<group>"; };
-		8257616516613A09008F1744 /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = setup.py; path = FinderLib/setup.py; sourceTree = "<group>"; };
-		8257616A1661720B008F1744 /* FinderLibCallbacks.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = FinderLibCallbacks.py; path = FinderLib/FinderLibCallbacks.py; sourceTree = "<group>"; };
-		8257616D166183DE008F1744 /* FinderLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinderLib.h; path = FinderLib/FinderLib.h; sourceTree = "<group>"; };
 		828283261608CFD500E8474C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		828283281608CFE100E8474C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82917EF5160E72990024B4F5 /* u1-folder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "u1-folder.icns"; path = "Resources/u1-folder.icns"; sourceTree = SOURCE_ROOT; };
@@ -164,6 +176,10 @@
 		82A5A1071604E77200E06BC5 /* U1IconOverlayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1IconOverlayUtils.h; sourceTree = "<group>"; };
 		82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1IconOverlayUtils.m; sourceTree = "<group>"; };
 		82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "u1-synced-emblem.png"; path = "Resources/u1-synced-emblem.png"; sourceTree = SOURCE_ROOT; };
+		82AC74B3167592320010D2D9 /* FinderLibCallbacks.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = FinderLibCallbacks.py; sourceTree = "<group>"; };
+		82AC74B4167592320010D2D9 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
+		82AC74B5167592320010D2D9 /* U1FinderLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1FinderLib.h; sourceTree = "<group>"; };
+		82AC74B6167592320010D2D9 /* U1FinderLib.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = U1FinderLib.py; sourceTree = "<group>"; };
 		82C197BA1605E4B000BE69A5 /* U1ContextMenuHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuHook.h; sourceTree = "<group>"; };
 		82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1ContextMenuHook.m; sourceTree = "<group>"; };
 		82C197BE1605ECED00BE69A5 /* U1ContextMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1ContextMenuUtils.h; sourceTree = "<group>"; };
@@ -202,7 +218,7 @@
 			children = (
 				8223BE871603515B00501BA6 /* U1 Finder Plugin */,
 				82F136FD160F3E7300E4B478 /* U1 Finder Injector */,
-				82576162166139EF008F1744 /* FinderLib */,
+				82AC70DB167592310010D2D9 /* U1FinderLib */,
 				82A5A0831604D58B00E06BC5 /* Third-Party */,
 				8223BE801603515B00501BA6 /* Frameworks */,
 				8223BE7F1603515B00501BA6 /* Products */,
@@ -263,17 +279,6 @@
 				82043621160396C300736533 /* U1Volumes.m */,
 			);
 			name = "U1 Files API";
-			sourceTree = "<group>";
-		};
-		82576162166139EF008F1744 /* FinderLib */ = {
-			isa = PBXGroup;
-			children = (
-				8257616D166183DE008F1744 /* FinderLib.h */,
-				8257616516613A09008F1744 /* setup.py */,
-				8257616416613A09008F1744 /* FinderLib.py */,
-				8257616A1661720B008F1744 /* FinderLibCallbacks.py */,
-			);
-			name = FinderLib;
 			sourceTree = "<group>";
 		};
 		82A5A0831604D58B00E06BC5 /* Third-Party */ = {
@@ -437,6 +442,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		82AC70DB167592310010D2D9 /* U1FinderLib */ = {
+			isa = PBXGroup;
+			children = (
+				82AC74B5167592320010D2D9 /* U1FinderLib.h */,
+				82AC74B6167592320010D2D9 /* U1FinderLib.py */,
+				82AC74B3167592320010D2D9 /* FinderLibCallbacks.py */,
+				82AC74B4167592320010D2D9 /* setup.py */,
+			);
+			path = U1FinderLib;
+			sourceTree = "<group>";
+		};
 		82C197B71605E3A000BE69A5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,7 +545,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8268CBEC16125ABD00133DA9 /* PBXTargetDependency */,
+				82AC7835167592960010D2D9 /* PBXTargetDependency */,
 			);
 			name = "U1 Finder Injector";
 			productName = "U1 Finder Injector";
@@ -560,6 +576,7 @@
 			targets = (
 				8223BE7D1603515B00501BA6 /* U1 Finder Plugin */,
 				82F136F9160F3E7300E4B478 /* U1 Finder Injector */,
+				82933B1E167588AE0038FCBA /* U1FinderLib */,
 			);
 		};
 /* End PBXProject section */
@@ -572,7 +589,9 @@
 				82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */,
 				828283251608CFD500E8474C /* Localizable.strings in Resources */,
 				82917EF6160E72990024B4F5 /* u1-folder.icns in Resources */,
-				8257616B1661720B008F1744 /* FinderLibCallbacks.py in Resources */,
+				82AC7831167592320010D2D9 /* FinderLibCallbacks.py in Resources */,
+				82AC7832167592320010D2D9 /* setup.py in Resources */,
+				82AC7833167592320010D2D9 /* U1FinderLib.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +605,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		82933B23167588BE0038FCBA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "U1_ENV_PATH=$HOME/Devel/UbuntuOne\n\n# Export the required paths\nexport PATH=$U1_ENV_PATH/scripts/devsetup/bin:$PATH\nexport PARTS=$U1_ENV_PATH/scripts/devsetup/parts\nexport PYTHONPATH=`/usr/local/bin/brew --prefix`/lib/python2.7/site-packages:$PARTS/ubuntuone-client:$PARTS/ubuntu-sso-client:$PARTS/ubuntuone-fsevents-daemon:$PARTS/ubuntuone-fsevents-daemon/python:$PARTS/macfsevents:$PARTS/macfsevents/build/lib.macosx-10.8-x86_64-2.7:$PARTS/ubuntuone-storage-protocol:$PYTHONPATH\n\n# Generate the FinderLib.bundle\ncd \"${SRCROOT}/U1FinderLib\"\npython setup.py py2app\n\n# Fix the PyQt libs\n# TODO Fix all the libs\ninstall_name_tool -change @executable_path/../Frameworks/QtCore.framework/Versions/4/QtCore @rpath/QtCore.framework/Versions/4/QtCore \"${SRCROOT}/U1FinderLib/dist/U1FinderLib.bundle/Contents/Resources/lib/python2.7/lib-dynload/PyQt4/QtCore.so\"\n\n# Copy the \"U1FiderLib.bundle\" to the \"U1 Finder Injector.osax\" resources\n# TODO";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8223BE7A1603515B00501BA6 /* Sources */ = {
@@ -636,10 +671,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8268CBEC16125ABD00133DA9 /* PBXTargetDependency */ = {
+		82AC7835167592960010D2D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8223BE7D1603515B00501BA6 /* U1 Finder Plugin */;
-			targetProxy = 8268CBEB16125ABD00133DA9 /* PBXContainerItemProxy */;
+			targetProxy = 82AC7834167592960010D2D9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -754,6 +789,20 @@
 			};
 			name = Release;
 		};
+		82933B1F167588AE0038FCBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		82933B20167588AE0038FCBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		82F13705160F3E7300E4B478 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -802,6 +851,15 @@
 			buildConfigurations = (
 				8223BE911603515B00501BA6 /* Debug */,
 				8223BE921603515B00501BA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82933B21167588AE0038FCBA /* Build configuration list for PBXAggregateTarget "U1FinderLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82933B1F167588AE0038FCBA /* Debug */,
+				82933B20167588AE0038FCBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
