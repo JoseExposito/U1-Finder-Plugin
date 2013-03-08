@@ -1,4 +1,0 @@
-About dependencies:
-
-	- SSKeychain		https://github.com/samsoffes/sskeychain		MIT License
-	- OAuthConsumer		https://github.com/jdg/oauthconsumer		Apache License 2.0

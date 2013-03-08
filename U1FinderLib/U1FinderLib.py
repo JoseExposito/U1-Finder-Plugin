@@ -18,15 +18,18 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 import objc
-from   twisted.internet import reactor, defer
+import os
+from   twisted.internet import (cfreactor, defer)
 from   ubuntuone.platform.tools import (SyncDaemonTool, is_already_running)
-from   FinderLibCallbacks import *
-NSObject = objc.lookUpClass('NSObject')
+from Foundation import (NSObject, NSString, NSMutableArray)
 
 ##
-# Variable to get the result of the calls to the Sync Daemon.
-# The result is a JSON string stored in returned_value[0].
-returned_value = ['']
+# Delegates of the U1FinderLib
+class U1FinderLibDelegate(NSObject):
+
+    @objc.typedSelector('v@:@')
+    def returnedVolumeList_(self, volumes):
+        pass
 
 ##
 # Objective-C facade to the methods of the U1FinderLib.
@@ -34,23 +37,26 @@ class U1FinderLib(NSObject):
     
     ##
     # Default constructor.
-    def init(self):
+    @objc.typedSelector('@@:@')
+    def initWithDelegate_(self, delegate):
         self = super(U1FinderLib, self).init()
         self.sync_daemon_tool = SyncDaemonTool(None)
+        self.delegate = delegate
+        cfreactor.install()
         return self
     
     ##
-    # Returns the list of the shared volumes. Example output:
+    # Returns the list of the shared volumes in a NSArray<NSString>. Example:
     #
-    # { type:"volume_list" volumes: {
-    #    { volume:"/Users/jose/Ubuntu One" subscribed:"YES" },
-    #    { volume:"/Users/jose/Pictures" subscribed:"NO" }
-    # } }
-    @objc.typedSelector('@@:')
+    # [
+    #    @"/Users/jose/Ubuntu One",
+    #    @"/Users/jose/Pictures"
+    # ]
+    @objc.typedSelector('v@:')
     def volumeList(self):
-        reactor.callWhenRunning(run_command, "volume_list", [], self.sync_daemon_tool)
-        reactor.run()
-        return returned_value[0]
+        d = self.sync_daemon_tool.get_folders()
+        d.addCallback(lambda r: volume_list(r, self.delegate))
+        return None
 
     ##
     # Indicates if the specified file is in synchronization process. Example output:
@@ -80,65 +86,41 @@ class U1FinderLib(NSObject):
         return returned_value[0]
 
 
+## CALLBACK FUNCTIONS ##
 
 
-
-##
-# Auxiliar functions to call to the sync daemon.
-@defer.inlineCallbacks
-def run_command(action, params, sync_daemon_tool):
-    running = yield is_already_running()
+def volume_list(folders, delegate):
+    volumes = NSMutableArray.alloc().init()
+    volumes.addObject_(NSString.alloc().initWithString_(os.path.expanduser('~/Ubuntu One')))
     
-    try:
-        if not running:
-            returned_value[0] = '{ type:"error" reason:"Sync Daemon is not running" }'
-        else:
-            yield run_action(action, params, sync_daemon_tool)
+    for folder in folders:
+        if (bool(folder['subscribed'])):
+            volumes.addObject_(NSString.alloc().initWithString_(folder['path']))
 
-    except Exception, e:
-        returned_value[0] = '{ type:"error" reason:"Exception: %s" }' % e
+    delegate.returnedVolumeList_(volumes)
 
-    finally:
-        if reactor.running:
-            reactor.stop()
+# File is Synchronizing
+def get_uploads(uploads):
+    return_list = []
+    for upload in uploads:
+        return_list.append(upload['path'])
+    return return_list
 
-@defer.inlineCallbacks
-def run_action(action, params, sync_daemon_tool):
+def get_downloads(downloads):
+    return_list = []
+    for download in downloads:
+        return_list.append(upload['downloads'])
+    return return_list
+
+# Make File Public
+def change_public_access(info, path):
+    return '{ type:"file_is_public" path:"' + path + '" is_public:"' + ('YES' if bool(info['is_public']) else 'NO') + '" public_url:"' + ('' if not bool(info['public_url']) else info['public_url']) + '" }'
+
+
+# Get Public Link
+def get_public_files(public_files, path):
+    for public_file in public_files:
+        if public_file['path'] == path:
+            return '{ type:"get_public_url" path:"' + path + '" public_url:"' + public_file['public_url'] + '" }'
     
-    if action == "volume_list":
-        d = sync_daemon_tool.get_folders()
-        returned_value[0] = yield d.addCallback(lambda r: volume_list(r))
-
-    elif action == "file_is_synchronizing":
-        # Check if the file is in the uploads
-        d = sync_daemon_tool.get_current_uploads()
-        uploads = yield d.addCallback(lambda r: get_uploads(r))        
-        if params[0] in uploads:
-            returned_value[0] = '{ type:"file_is_synchronizing" path:"' + params[0] + '" synchronizing:"YES" }'
-            return
-        
-        # Check if the file is in the downloads
-        d = sync_daemon_tool.get_current_downloads()
-        downloads = yield d.addCallback(lambda r: get_downloads(r))
-        if params[0] in downloads:
-            returned_value[0] = '{ type:"file_is_synchronizing" path:"' + params[0] + '" synchronizing:"YES" }'
-            return
-
-        # If the file is not in the downloads or in the uploads it is because it is synchronized
-        returned_value[0] = '{ type:"file_is_synchronizing" path:"' + params[0] + '" synchronizing:"NO" }'
-
-    elif action == "make_file_public":
-        d = sync_daemon_tool.change_public_access(params[0], params[1])
-        returned_value[0] = yield d.addCallback(lambda r: change_public_access(r, params[0]))
-
-    elif action == "get_public_link":
-        d = sync_daemon_tool.get_public_files()
-        returned_value[0] = yield d.addCallback(lambda r: get_public_files(r, params[0]))
-
-
-if __name__ == '__main__':
-    py = U1FinderLib.alloc().init()
-    print py.volumeList()
-    #print py.fileIsSynchronizing_("/Users/jose/Ubuntu One/a.mp4")
-    #print py.makeFile_public_("/Users/jose/Ubuntu One/Examen.pdf", True)
-    #print py.getPublicLinkOfFile_("/Users/jose/Ubuntu One/Examen.pdf")
+    return '{ type:"error" reason:"The file is not public" }'

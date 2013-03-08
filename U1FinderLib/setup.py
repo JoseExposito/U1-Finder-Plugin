@@ -25,5 +25,7 @@ from setuptools import setup
 setup(
       name='U1FinderLib',
       plugin = ['U1FinderLib.py'],
-      options=dict(py2app=dict(extension='.bundle'))
+      options=dict(py2app=dict(
+          extension='.bundle'
+      ))
 )

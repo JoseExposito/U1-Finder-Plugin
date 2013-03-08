@@ -39,7 +39,7 @@
     
     if ([[U1IconOverlayUtils sharedInstance] mustDrawIconOverlayOverFileAtPath:filePath]) {        
         // Get the icon overlay
-        NSImage *iconOverlay = [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-synced-emblem.png"]];
+        NSImage *iconOverlay = [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-synced-emblem.icns"]];
         
         // Get the real icon
         IKImageWrapper *imageWrapper = (IKImageWrapper *)arg1;
@@ -68,7 +68,7 @@
     
     // Draw the icon overlay if necessary
     if ([[U1IconOverlayUtils sharedInstance] mustDrawIconOverlayOverFileAtPath:filePath]) {
-        NSImage *iconOverlay = [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-synced-emblem.png"]];
+        NSImage *iconOverlay = [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-synced-emblem.icns"]];
         [iconOverlay drawInRect:NSMakeRect(arg1.origin.x, arg1.origin.y+arg1.size.height/4, 3*arg1.size.height/4, 3*arg1.size.height/4) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
     }
 }

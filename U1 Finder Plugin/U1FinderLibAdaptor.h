@@ -16,32 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 #import <Foundation/Foundation.h>
-#import "OAuthConsumer.h"
+#import "U1FinderLib.h"
 
 /*!
- Allows to check if the user has their credentials storeds in the OS X keychain and allows to use it to login or send messages to the U1 server.
+ Class that provides synchronous and singleton access to the U1FinderLib bundle.
  */
-@interface U1AccountManager : NSObject
+@interface U1FinderLibAdaptor : NSObject <U1FinderLibDelegate>
 
-    /*!
-     Returns the single instance of the class.
-     */
-    + (U1AccountManager *)sharedInstance;
+/*!
+ Returns the single instance of the class.
+ */
++ (U1FinderLibAdaptor *)sharedInstance;
 
-    /*!
-     Reloads the autentication data reading it from the keychain.
-     */
-    - (void)reloadDataFromKeychain;
-
-    /*!
-     Indicates if the user has correct credentials storeds in their keychain.
-     */
-    - (BOOL)hasCredentials;
-
-    /*!
-     OAuth data.
-     */
-    @property (nonatomic, strong) OAConsumer *oauthConsumer;
-    @property (nonatomic, strong) OAToken *oauthToken;
+// See U1FinderLib.py for documentation
+- (NSArray *)volumeList;
 
 @end

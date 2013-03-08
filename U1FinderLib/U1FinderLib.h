@@ -16,13 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
+@protocol U1FinderLibDelegate <NSObject>
+
+    - (void)returnedVolumeList:(NSArray *)volumes;
+
+@end
 
 /*!
  Objective-C interface to execute the FinderLib bundle Python code.
+ DO NOT USE THIS CLASS. Use U1FinderLibAdaptor instead.
  */
 @interface U1FinderLib : NSObject
 
-    - (NSString *)volumeList;
+    - (id)initWithDelegate:(id<U1FinderLibDelegate>)delegate;
+    - (void)volumeList;
     - (NSString *)fileIsSynchronizing:(NSString *)path;
     - (NSString *)makeFile:(NSString *)path public:(BOOL)public;
     - (NSString *)getPublicLinkOfFile:(NSString *)path;

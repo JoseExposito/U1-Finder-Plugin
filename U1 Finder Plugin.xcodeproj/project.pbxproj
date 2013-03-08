@@ -14,6 +14,8 @@
 				82933B23167588BE0038FCBA /* ShellScript */,
 			);
 			dependencies = (
+				82F5CDF116EA8C9F0015AB9A /* PBXTargetDependency */,
+				82F5CDF316EA8C9F0015AB9A /* PBXTargetDependency */,
 			);
 			name = U1FinderLib;
 			productName = FinderLib;
@@ -21,42 +23,16 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		820435E41603770100736533 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 820435E31603770100736533 /* libxml2.dylib */; };
-		82043622160396C300736533 /* U1Volumes.m in Sources */ = {isa = PBXBuildFile; fileRef = 82043621160396C300736533 /* U1Volumes.m */; };
+		821EC45D16E2BA6600041740 /* u1-synced-emblem.icns in Resources */ = {isa = PBXBuildFile; fileRef = 821EC45C16E2BA6600041740 /* u1-synced-emblem.icns */; };
 		8223BE821603515B00501BA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8223BE811603515B00501BA6 /* Cocoa.framework */; };
 		8223BE951603534700501BA6 /* U1Main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BE941603534700501BA6 /* U1Main.m */; };
-		8223BEA916036F4900501BA6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8223BEA816036F4900501BA6 /* Security.framework */; };
-		8223BEB41603742E00501BA6 /* U1AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BEB31603742E00501BA6 /* U1AccountManager.m */; };
 		8268CBEE16125AE100133DA9 /* U1 Finder Plugin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8223BE7E1603515B00501BA6 /* U1 Finder Plugin.bundle */; };
 		828283251608CFD500E8474C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 828283271608CFD500E8474C /* Localizable.strings */; };
 		82917EF6160E72990024B4F5 /* u1-folder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 82917EF5160E72990024B4F5 /* u1-folder.icns */; };
-		82A5A0731604B05600E06BC5 /* U1Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0721604B05600E06BC5 /* U1Login.m */; };
-		82A5A0771604B7B400E06BC5 /* U1AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0761604B7B400E06BC5 /* U1AppDelegate.m */; };
-		82A5A0B31604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0881604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0B41604D58B00E06BC5 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A08A1604D58B00E06BC5 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0B51604D58B00E06BC5 /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A08C1604D58B00E06BC5 /* NSURL+Base.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0B61604D58B00E06BC5 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A08E1604D58B00E06BC5 /* Base64Transcoder.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0B71604D58B00E06BC5 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0901604D58B00E06BC5 /* hmac.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0B81604D58B00E06BC5 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0921604D58B00E06BC5 /* sha1.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0B91604D58B00E06BC5 /* OAAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0951604D58B00E06BC5 /* OAAttachment.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0BA1604D58B00E06BC5 /* OACall.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0971604D58B00E06BC5 /* OACall.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0BB1604D58B00E06BC5 /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0991604D58B00E06BC5 /* OAConsumer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0BC1604D58B00E06BC5 /* OADataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A09B1604D58B00E06BC5 /* OADataFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0BD1604D58B00E06BC5 /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A09D1604D58B00E06BC5 /* OAHMAC_SHA1SignatureProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0BE1604D58B00E06BC5 /* OAMutableURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A09F1604D58B00E06BC5 /* OAMutableURLRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0BF1604D58B00E06BC5 /* OAPlaintextSignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0A11604D58B00E06BC5 /* OAPlaintextSignatureProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0C01604D58B00E06BC5 /* OAProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0A31604D58B00E06BC5 /* OAProblem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0C11604D58B00E06BC5 /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0A51604D58B00E06BC5 /* OARequestParameter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0C21604D58B00E06BC5 /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0A71604D58B00E06BC5 /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0C41604D58B00E06BC5 /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0AB1604D58B00E06BC5 /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0C51604D58B00E06BC5 /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0AD1604D58B00E06BC5 /* OATokenManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		82A5A0C61604D58B00E06BC5 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0B11604D58B00E06BC5 /* SSKeychain.m */; };
 		82A5A0CD1604E04C00E06BC5 /* U1Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0CC1604E04C00E06BC5 /* U1Hook.m */; };
 		82A5A0D11604E0A300E06BC5 /* U1Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0D01604E0A300E06BC5 /* U1Resources.m */; };
 		82A5A0D51604E1DA00E06BC5 /* U1IconOverlayHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A0D41604E1DA00E06BC5 /* U1IconOverlayHook.m */; };
 		82A5A1091604E77200E06BC5 /* U1IconOverlayUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */; };
-		82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */; };
-		82AC7831167592320010D2D9 /* FinderLibCallbacks.py in Resources */ = {isa = PBXBuildFile; fileRef = 82AC74B3167592320010D2D9 /* FinderLibCallbacks.py */; };
 		82AC7832167592320010D2D9 /* setup.py in Resources */ = {isa = PBXBuildFile; fileRef = 82AC74B4167592320010D2D9 /* setup.py */; };
 		82AC7833167592320010D2D9 /* U1FinderLib.py in Resources */ = {isa = PBXBuildFile; fileRef = 82AC74B6167592320010D2D9 /* U1FinderLib.py */; };
 		82C197BC1605E4B000BE69A5 /* U1ContextMenuHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C197BB1605E4B000BE69A5 /* U1ContextMenuHook.m */; };
@@ -64,6 +40,7 @@
 		82F136FC160F3E7300E4B478 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F136FB160F3E7300E4B478 /* CoreFoundation.framework */; };
 		82F13709160F3FB900E4B478 /* U1FinderInjector.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 82F13708160F3FB900E4B478 /* U1FinderInjector.sdef */; };
 		82F1370D160F44CA00E4B478 /* U1FinderInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F1370C160F44CA00E4B478 /* U1FinderInjector.m */; };
+		82F5CDF916EAA7B10015AB9A /* U1FinderLibAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F5CDF816EAA7B10015AB9A /* U1FinderLibAdaptor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,12 +51,25 @@
 			remoteGlobalIDString = 8223BE7D1603515B00501BA6;
 			remoteInfo = "U1 Finder Plugin";
 		};
+		82F5CDF016EA8C9F0015AB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8223BE751603515B00501BA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8223BE7D1603515B00501BA6;
+			remoteInfo = "U1 Finder Plugin";
+		};
+		82F5CDF216EA8C9F0015AB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8223BE751603515B00501BA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82F136F9160F3E7300E4B478;
+			remoteInfo = "U1 Finder Injector";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		820435E31603770100736533 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		82043620160396C300736533 /* U1Volumes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Volumes.h; sourceTree = "<group>"; };
-		82043621160396C300736533 /* U1Volumes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Volumes.m; sourceTree = "<group>"; };
+		821EC45C16E2BA6600041740 /* u1-synced-emblem.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "u1-synced-emblem.icns"; path = "Resources/u1-synced-emblem.icns"; sourceTree = SOURCE_ROOT; };
 		8223BE7E1603515B00501BA6 /* U1 Finder Plugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "U1 Finder Plugin.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8223BE811603515B00501BA6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8223BE841603515B00501BA6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -89,58 +79,9 @@
 		8223BE8D1603515B00501BA6 /* U1 Finder Plugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "U1 Finder Plugin-Prefix.pch"; sourceTree = "<group>"; };
 		8223BE931603534700501BA6 /* U1Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Main.h; sourceTree = "<group>"; };
 		8223BE941603534700501BA6 /* U1Main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Main.m; sourceTree = "<group>"; };
-		8223BEA816036F4900501BA6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8223BEB21603742E00501BA6 /* U1AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1AccountManager.h; sourceTree = "<group>"; };
-		8223BEB31603742E00501BA6 /* U1AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1AccountManager.m; sourceTree = "<group>"; };
 		828283261608CFD500E8474C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		828283281608CFE100E8474C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82917EF5160E72990024B4F5 /* u1-folder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "u1-folder.icns"; path = "Resources/u1-folder.icns"; sourceTree = SOURCE_ROOT; };
-		82A5A0711604B05600E06BC5 /* U1Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Login.h; sourceTree = "<group>"; };
-		82A5A0721604B05600E06BC5 /* U1Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Login.m; sourceTree = "<group>"; };
-		82A5A0751604B7B400E06BC5 /* U1AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1AppDelegate.h; sourceTree = "<group>"; };
-		82A5A0761604B7B400E06BC5 /* U1AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1AppDelegate.m; sourceTree = "<group>"; };
-		82A5A0841604D58B00E06BC5 /* About dependencies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "About dependencies.txt"; sourceTree = "<group>"; };
-		82A5A0871604D58B00E06BC5 /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
-		82A5A0881604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Parameters.m"; sourceTree = "<group>"; };
-		82A5A0891604D58B00E06BC5 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		82A5A08A1604D58B00E06BC5 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		82A5A08B1604D58B00E06BC5 /* NSURL+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Base.h"; sourceTree = "<group>"; };
-		82A5A08C1604D58B00E06BC5 /* NSURL+Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Base.m"; sourceTree = "<group>"; };
-		82A5A08E1604D58B00E06BC5 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
-		82A5A08F1604D58B00E06BC5 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
-		82A5A0901604D58B00E06BC5 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
-		82A5A0911604D58B00E06BC5 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		82A5A0921604D58B00E06BC5 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
-		82A5A0931604D58B00E06BC5 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
-		82A5A0941604D58B00E06BC5 /* OAAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAAttachment.h; sourceTree = "<group>"; };
-		82A5A0951604D58B00E06BC5 /* OAAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAAttachment.m; sourceTree = "<group>"; };
-		82A5A0961604D58B00E06BC5 /* OACall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OACall.h; sourceTree = "<group>"; };
-		82A5A0971604D58B00E06BC5 /* OACall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OACall.m; sourceTree = "<group>"; };
-		82A5A0981604D58B00E06BC5 /* OAConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAConsumer.h; sourceTree = "<group>"; };
-		82A5A0991604D58B00E06BC5 /* OAConsumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAConsumer.m; sourceTree = "<group>"; };
-		82A5A09A1604D58B00E06BC5 /* OADataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OADataFetcher.h; sourceTree = "<group>"; };
-		82A5A09B1604D58B00E06BC5 /* OADataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OADataFetcher.m; sourceTree = "<group>"; };
-		82A5A09C1604D58B00E06BC5 /* OAHMAC_SHA1SignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider.h; sourceTree = "<group>"; };
-		82A5A09D1604D58B00E06BC5 /* OAHMAC_SHA1SignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAHMAC_SHA1SignatureProvider.m; sourceTree = "<group>"; };
-		82A5A09E1604D58B00E06BC5 /* OAMutableURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAMutableURLRequest.h; sourceTree = "<group>"; };
-		82A5A09F1604D58B00E06BC5 /* OAMutableURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAMutableURLRequest.m; sourceTree = "<group>"; };
-		82A5A0A01604D58B00E06BC5 /* OAPlaintextSignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPlaintextSignatureProvider.h; sourceTree = "<group>"; };
-		82A5A0A11604D58B00E06BC5 /* OAPlaintextSignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPlaintextSignatureProvider.m; sourceTree = "<group>"; };
-		82A5A0A21604D58B00E06BC5 /* OAProblem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAProblem.h; sourceTree = "<group>"; };
-		82A5A0A31604D58B00E06BC5 /* OAProblem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAProblem.m; sourceTree = "<group>"; };
-		82A5A0A41604D58B00E06BC5 /* OARequestParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OARequestParameter.h; sourceTree = "<group>"; };
-		82A5A0A51604D58B00E06BC5 /* OARequestParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OARequestParameter.m; sourceTree = "<group>"; };
-		82A5A0A61604D58B00E06BC5 /* OAServiceTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAServiceTicket.h; sourceTree = "<group>"; };
-		82A5A0A71604D58B00E06BC5 /* OAServiceTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAServiceTicket.m; sourceTree = "<group>"; };
-		82A5A0A81604D58B00E06BC5 /* OASignatureProviding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OASignatureProviding.h; sourceTree = "<group>"; };
-		82A5A0A91604D58B00E06BC5 /* OATestServer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = OATestServer.rb; sourceTree = "<group>"; };
-		82A5A0AA1604D58B00E06BC5 /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
-		82A5A0AB1604D58B00E06BC5 /* OAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken.m; sourceTree = "<group>"; };
-		82A5A0AC1604D58B00E06BC5 /* OATokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OATokenManager.h; sourceTree = "<group>"; };
-		82A5A0AD1604D58B00E06BC5 /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
-		82A5A0AE1604D58B00E06BC5 /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
-		82A5A0B01604D58B00E06BC5 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		82A5A0B11604D58B00E06BC5 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		82A5A0CB1604E04C00E06BC5 /* U1Hook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Hook.h; sourceTree = "<group>"; };
 		82A5A0CC1604E04C00E06BC5 /* U1Hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Hook.m; sourceTree = "<group>"; };
 		82A5A0CF1604E0A300E06BC5 /* U1Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Resources.h; sourceTree = "<group>"; };
@@ -175,8 +116,6 @@
 		82A5A1051604E6B400E06BC5 /* PFImageKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFImageKit.h; sourceTree = "<group>"; };
 		82A5A1071604E77200E06BC5 /* U1IconOverlayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1IconOverlayUtils.h; sourceTree = "<group>"; };
 		82A5A1081604E77200E06BC5 /* U1IconOverlayUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1IconOverlayUtils.m; sourceTree = "<group>"; };
-		82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "u1-synced-emblem.png"; path = "Resources/u1-synced-emblem.png"; sourceTree = SOURCE_ROOT; };
-		82AC74B3167592320010D2D9 /* FinderLibCallbacks.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = FinderLibCallbacks.py; sourceTree = "<group>"; };
 		82AC74B4167592320010D2D9 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
 		82AC74B5167592320010D2D9 /* U1FinderLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1FinderLib.h; sourceTree = "<group>"; };
 		82AC74B6167592320010D2D9 /* U1FinderLib.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = U1FinderLib.py; sourceTree = "<group>"; };
@@ -189,6 +128,8 @@
 		82F136FF160F3E7300E4B478 /* U1 Finder Injector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "U1 Finder Injector-Info.plist"; sourceTree = "<group>"; };
 		82F13708160F3FB900E4B478 /* U1FinderInjector.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = U1FinderInjector.sdef; path = Resources/U1FinderInjector.sdef; sourceTree = SOURCE_ROOT; };
 		82F1370C160F44CA00E4B478 /* U1FinderInjector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1FinderInjector.m; sourceTree = "<group>"; };
+		82F5CDF716EAA7B10015AB9A /* U1FinderLibAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1FinderLibAdaptor.h; sourceTree = "<group>"; };
+		82F5CDF816EAA7B10015AB9A /* U1FinderLibAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1FinderLibAdaptor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820435E41603770100736533 /* libxml2.dylib in Frameworks */,
-				8223BEA916036F4900501BA6 /* Security.framework in Frameworks */,
 				8223BE821603515B00501BA6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +158,6 @@
 				8223BE871603515B00501BA6 /* U1 Finder Plugin */,
 				82F136FD160F3E7300E4B478 /* U1 Finder Injector */,
 				82AC70DB167592310010D2D9 /* U1FinderLib */,
-				82A5A0831604D58B00E06BC5 /* Third-Party */,
 				8223BE801603515B00501BA6 /* Frameworks */,
 				8223BE7F1603515B00501BA6 /* Products */,
 			);
@@ -242,7 +180,6 @@
 				8223BE851603515B00501BA6 /* CoreData.framework */,
 				8223BE861603515B00501BA6 /* Foundation.framework */,
 				82F136FB160F3E7300E4B478 /* CoreFoundation.framework */,
-				8223BEA816036F4900501BA6 /* Security.framework */,
 				820435E31603770100736533 /* libxml2.dylib */,
 			);
 			name = Frameworks;
@@ -266,100 +203,6 @@
 				8223BE8D1603515B00501BA6 /* U1 Finder Plugin-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8223BEAE1603731F00501BA6 /* U1 Files API */ = {
-			isa = PBXGroup;
-			children = (
-				8223BEB21603742E00501BA6 /* U1AccountManager.h */,
-				8223BEB31603742E00501BA6 /* U1AccountManager.m */,
-				82A5A0711604B05600E06BC5 /* U1Login.h */,
-				82A5A0721604B05600E06BC5 /* U1Login.m */,
-				82043620160396C300736533 /* U1Volumes.h */,
-				82043621160396C300736533 /* U1Volumes.m */,
-			);
-			name = "U1 Files API";
-			sourceTree = "<group>";
-		};
-		82A5A0831604D58B00E06BC5 /* Third-Party */ = {
-			isa = PBXGroup;
-			children = (
-				82A5A0841604D58B00E06BC5 /* About dependencies.txt */,
-				82A5A0851604D58B00E06BC5 /* OAuthConsumer */,
-				82A5A0AF1604D58B00E06BC5 /* SSKeychain */,
-			);
-			path = "Third-Party";
-			sourceTree = "<group>";
-		};
-		82A5A0851604D58B00E06BC5 /* OAuthConsumer */ = {
-			isa = PBXGroup;
-			children = (
-				82A5A0861604D58B00E06BC5 /* Categories */,
-				82A5A08D1604D58B00E06BC5 /* Crypto */,
-				82A5A0941604D58B00E06BC5 /* OAAttachment.h */,
-				82A5A0951604D58B00E06BC5 /* OAAttachment.m */,
-				82A5A0961604D58B00E06BC5 /* OACall.h */,
-				82A5A0971604D58B00E06BC5 /* OACall.m */,
-				82A5A0981604D58B00E06BC5 /* OAConsumer.h */,
-				82A5A0991604D58B00E06BC5 /* OAConsumer.m */,
-				82A5A09A1604D58B00E06BC5 /* OADataFetcher.h */,
-				82A5A09B1604D58B00E06BC5 /* OADataFetcher.m */,
-				82A5A09C1604D58B00E06BC5 /* OAHMAC_SHA1SignatureProvider.h */,
-				82A5A09D1604D58B00E06BC5 /* OAHMAC_SHA1SignatureProvider.m */,
-				82A5A09E1604D58B00E06BC5 /* OAMutableURLRequest.h */,
-				82A5A09F1604D58B00E06BC5 /* OAMutableURLRequest.m */,
-				82A5A0A01604D58B00E06BC5 /* OAPlaintextSignatureProvider.h */,
-				82A5A0A11604D58B00E06BC5 /* OAPlaintextSignatureProvider.m */,
-				82A5A0A21604D58B00E06BC5 /* OAProblem.h */,
-				82A5A0A31604D58B00E06BC5 /* OAProblem.m */,
-				82A5A0A41604D58B00E06BC5 /* OARequestParameter.h */,
-				82A5A0A51604D58B00E06BC5 /* OARequestParameter.m */,
-				82A5A0A61604D58B00E06BC5 /* OAServiceTicket.h */,
-				82A5A0A71604D58B00E06BC5 /* OAServiceTicket.m */,
-				82A5A0A81604D58B00E06BC5 /* OASignatureProviding.h */,
-				82A5A0A91604D58B00E06BC5 /* OATestServer.rb */,
-				82A5A0AA1604D58B00E06BC5 /* OAToken.h */,
-				82A5A0AB1604D58B00E06BC5 /* OAToken.m */,
-				82A5A0AC1604D58B00E06BC5 /* OATokenManager.h */,
-				82A5A0AD1604D58B00E06BC5 /* OATokenManager.m */,
-				82A5A0AE1604D58B00E06BC5 /* OAuthConsumer.h */,
-			);
-			path = OAuthConsumer;
-			sourceTree = "<group>";
-		};
-		82A5A0861604D58B00E06BC5 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				82A5A0871604D58B00E06BC5 /* NSMutableURLRequest+Parameters.h */,
-				82A5A0881604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m */,
-				82A5A0891604D58B00E06BC5 /* NSString+URLEncoding.h */,
-				82A5A08A1604D58B00E06BC5 /* NSString+URLEncoding.m */,
-				82A5A08B1604D58B00E06BC5 /* NSURL+Base.h */,
-				82A5A08C1604D58B00E06BC5 /* NSURL+Base.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		82A5A08D1604D58B00E06BC5 /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				82A5A08E1604D58B00E06BC5 /* Base64Transcoder.c */,
-				82A5A08F1604D58B00E06BC5 /* Base64Transcoder.h */,
-				82A5A0901604D58B00E06BC5 /* hmac.c */,
-				82A5A0911604D58B00E06BC5 /* hmac.h */,
-				82A5A0921604D58B00E06BC5 /* sha1.c */,
-				82A5A0931604D58B00E06BC5 /* sha1.h */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		82A5A0AF1604D58B00E06BC5 /* SSKeychain */ = {
-			isa = PBXGroup;
-			children = (
-				82A5A0B01604D58B00E06BC5 /* SSKeychain.h */,
-				82A5A0B11604D58B00E06BC5 /* SSKeychain.m */,
-			);
-			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 		82A5A0CA1604E03E00E06BC5 /* Hook */ = {
@@ -435,8 +278,8 @@
 		82A5A10A1604EC3E00E06BC5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				821EC45C16E2BA6600041740 /* u1-synced-emblem.icns */,
 				82917EF5160E72990024B4F5 /* u1-folder.icns */,
-				82A5A10D1605125D00E06BC5 /* u1-synced-emblem.png */,
 				828283271608CFD500E8474C /* Localizable.strings */,
 			);
 			name = Resources;
@@ -447,7 +290,6 @@
 			children = (
 				82AC74B5167592320010D2D9 /* U1FinderLib.h */,
 				82AC74B6167592320010D2D9 /* U1FinderLib.py */,
-				82AC74B3167592320010D2D9 /* FinderLibCallbacks.py */,
 				82AC74B4167592320010D2D9 /* setup.py */,
 			);
 			path = U1FinderLib;
@@ -458,11 +300,9 @@
 			children = (
 				8223BE931603534700501BA6 /* U1Main.h */,
 				8223BE941603534700501BA6 /* U1Main.m */,
-				82A5A0751604B7B400E06BC5 /* U1AppDelegate.h */,
-				82A5A0761604B7B400E06BC5 /* U1AppDelegate.m */,
 				82A5A0CA1604E03E00E06BC5 /* Hook */,
 				82A5A0CE1604E07800E06BC5 /* Resources Access */,
-				8223BEAE1603731F00501BA6 /* U1 Files API */,
+				82F5CDF616EAA77A0015AB9A /* FinderLib Adaptor */,
 				82A5A0D21604E1A300E06BC5 /* Icon Overlay */,
 				82C197BD1605EC9F00BE69A5 /* Context Menu */,
 			);
@@ -514,6 +354,15 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		82F5CDF616EAA77A0015AB9A /* FinderLib Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				82F5CDF716EAA7B10015AB9A /* U1FinderLibAdaptor.h */,
+				82F5CDF816EAA7B10015AB9A /* U1FinderLibAdaptor.m */,
+			);
+			name = "FinderLib Adaptor";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -559,7 +408,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = U1;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "José Expósito";
 			};
 			buildConfigurationList = 8223BE781603515B00501BA6 /* Build configuration list for PBXProject "U1 Finder Plugin" */;
@@ -586,12 +435,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A5A10E1605125D00E06BC5 /* u1-synced-emblem.png in Resources */,
 				828283251608CFD500E8474C /* Localizable.strings in Resources */,
 				82917EF6160E72990024B4F5 /* u1-folder.icns in Resources */,
-				82AC7831167592320010D2D9 /* FinderLibCallbacks.py in Resources */,
 				82AC7832167592320010D2D9 /* setup.py in Resources */,
 				82AC7833167592320010D2D9 /* U1FinderLib.py in Resources */,
+				821EC45D16E2BA6600041740 /* u1-synced-emblem.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,7 +466,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "U1_ENV_PATH=$HOME/Devel/UbuntuOne\n\n# Export the required paths\nexport PATH=$U1_ENV_PATH/scripts/devsetup/bin:$PATH\nexport PARTS=$U1_ENV_PATH/scripts/devsetup/parts\nexport PYTHONPATH=`/usr/local/bin/brew --prefix`/lib/python2.7/site-packages:$PARTS/ubuntuone-client:$PARTS/ubuntu-sso-client:$PARTS/ubuntuone-fsevents-daemon:$PARTS/ubuntuone-fsevents-daemon/python:$PARTS/macfsevents:$PARTS/macfsevents/build/lib.macosx-10.8-x86_64-2.7:$PARTS/ubuntuone-storage-protocol:$PYTHONPATH\n\n# Generate the FinderLib.bundle\ncd \"${SRCROOT}/U1FinderLib\"\npython setup.py py2app\n\n# Fix the PyQt libs\n# TODO Fix all the libs\ninstall_name_tool -change @executable_path/../Frameworks/QtCore.framework/Versions/4/QtCore @rpath/QtCore.framework/Versions/4/QtCore \"${SRCROOT}/U1FinderLib/dist/U1FinderLib.bundle/Contents/Resources/lib/python2.7/lib-dynload/PyQt4/QtCore.so\"\n\n# Copy the \"U1FiderLib.bundle\" to the \"U1 Finder Injector.osax\" resources\n# TODO";
+			shellScript = "U1_ENV_PATH=$HOME/Devel/UbuntuOne\n\n# Export the required paths\nexport PATH=$U1_ENV_PATH/scripts/devsetup/bin:$PATH\nexport PARTS=$U1_ENV_PATH/scripts/devsetup/parts\nexport PYTHONPATH=`/usr/local/bin/brew --prefix`/lib/python2.7/site-packages:$PARTS/ubuntuone-client:$PARTS/ubuntu-sso-client:$PARTS/ubuntuone-fsevents-daemon:$PARTS/ubuntuone-fsevents-daemon/python:$PARTS/macfsevents:$PARTS/macfsevents/build/lib.macosx-10.8-x86_64-2.7:$PARTS/ubuntuone-storage-protocol:/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC:$PYTHONPATH\n\n# Generate the FinderLib.bundle\ncd \"${SRCROOT}/U1FinderLib\"\npython setup.py py2app\n\n# Fix the PyQt libs\n# TODO Fix all the libs\ninstall_name_tool -change @executable_path/../Frameworks/QtCore.framework/Versions/4/QtCore \"/Library/ScriptingAdditions/U1 Finder Injector.osax/Contents/Resources/U1FinderLib.bundle/Contents/Frameworks/QtCore.framework/Versions/4/QtCore\" \"${SRCROOT}/U1FinderLib/dist/U1FinderLib.bundle/Contents/Resources/lib/python2.7/lib-dynload/PyQt4/QtCore.so\"\n\n# Copy the \"U1FiderLib.bundle\" to the \"U1 Finder Injector.osax\" resources\nrm -fr \"${BUILT_PRODUCTS_DIR}/U1 Finder Injector.osax/Contents/Resources/U1FinderLib.bundle\"\ncp -R \"${SRCROOT}/U1FinderLib/dist/U1FinderLib.bundle\" \"${BUILT_PRODUCTS_DIR}/U1 Finder Injector.osax/Contents/Resources/U1FinderLib.bundle\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -627,36 +475,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A5A0C61604D58B00E06BC5 /* SSKeychain.m in Sources */,
-				82A5A0B31604D58B00E06BC5 /* NSMutableURLRequest+Parameters.m in Sources */,
-				82A5A0B41604D58B00E06BC5 /* NSString+URLEncoding.m in Sources */,
-				82A5A0B51604D58B00E06BC5 /* NSURL+Base.m in Sources */,
-				82A5A0B61604D58B00E06BC5 /* Base64Transcoder.c in Sources */,
-				82A5A0B71604D58B00E06BC5 /* hmac.c in Sources */,
-				82A5A0B81604D58B00E06BC5 /* sha1.c in Sources */,
-				82A5A0B91604D58B00E06BC5 /* OAAttachment.m in Sources */,
-				82A5A0BA1604D58B00E06BC5 /* OACall.m in Sources */,
-				82A5A0BB1604D58B00E06BC5 /* OAConsumer.m in Sources */,
-				82A5A0BC1604D58B00E06BC5 /* OADataFetcher.m in Sources */,
-				82A5A0BD1604D58B00E06BC5 /* OAHMAC_SHA1SignatureProvider.m in Sources */,
-				82A5A0BE1604D58B00E06BC5 /* OAMutableURLRequest.m in Sources */,
-				82A5A0BF1604D58B00E06BC5 /* OAPlaintextSignatureProvider.m in Sources */,
-				82A5A0C01604D58B00E06BC5 /* OAProblem.m in Sources */,
-				82A5A0C11604D58B00E06BC5 /* OARequestParameter.m in Sources */,
-				82A5A0C21604D58B00E06BC5 /* OAServiceTicket.m in Sources */,
-				82A5A0C41604D58B00E06BC5 /* OAToken.m in Sources */,
-				82A5A0C51604D58B00E06BC5 /* OATokenManager.m in Sources */,
 				8223BE951603534700501BA6 /* U1Main.m in Sources */,
-				82A5A0771604B7B400E06BC5 /* U1AppDelegate.m in Sources */,
-				8223BEB41603742E00501BA6 /* U1AccountManager.m in Sources */,
-				82043622160396C300736533 /* U1Volumes.m in Sources */,
-				82A5A0731604B05600E06BC5 /* U1Login.m in Sources */,
 				82A5A0CD1604E04C00E06BC5 /* U1Hook.m in Sources */,
 				82A5A0D11604E0A300E06BC5 /* U1Resources.m in Sources */,
 				82A5A0D51604E1DA00E06BC5 /* U1IconOverlayHook.m in Sources */,
 				82A5A1091604E77200E06BC5 /* U1IconOverlayUtils.m in Sources */,
 				82C197BC1605E4B000BE69A5 /* U1ContextMenuHook.m in Sources */,
 				82C197C01605ECED00BE69A5 /* U1ContextMenuUtils.mm in Sources */,
+				82F5CDF916EAA7B10015AB9A /* U1FinderLibAdaptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +501,16 @@
 			isa = PBXTargetDependency;
 			target = 8223BE7D1603515B00501BA6 /* U1 Finder Plugin */;
 			targetProxy = 82AC7834167592960010D2D9 /* PBXContainerItemProxy */;
+		};
+		82F5CDF116EA8C9F0015AB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8223BE7D1603515B00501BA6 /* U1 Finder Plugin */;
+			targetProxy = 82F5CDF016EA8C9F0015AB9A /* PBXContainerItemProxy */;
+		};
+		82F5CDF316EA8C9F0015AB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82F136F9160F3E7300E4B478 /* U1 Finder Injector */;
+			targetProxy = 82F5CDF216EA8C9F0015AB9A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -747,11 +583,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "U1 Finder Plugin/U1 Finder Plugin-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"./Third-Party/**",
-					"$SDKROOT/usr/include/libxml2/**",
-					"./FinderLib/**",
-				);
+				HEADER_SEARCH_PATHS = "./U1FinderLib/**";
 				INFOPLIST_FILE = "U1 Finder Plugin/U1 Finder Plugin-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
@@ -771,11 +603,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "U1 Finder Plugin/U1 Finder Plugin-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"./Third-Party/**",
-					"$SDKROOT/usr/include/libxml2/**",
-					"./FinderLib/**",
-				);
+				HEADER_SEARCH_PATHS = "./U1FinderLib/**";
 				INFOPLIST_FILE = "U1 Finder Plugin/U1 Finder Plugin-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
@@ -792,6 +620,7 @@
 		82933B1F167588AE0038FCBA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -799,6 +628,7 @@
 		82933B20167588AE0038FCBA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
