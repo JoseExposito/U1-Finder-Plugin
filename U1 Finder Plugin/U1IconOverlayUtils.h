@@ -35,4 +35,10 @@
      */
     - (BOOL)mustDrawIconOverlayOverFileAtPath:(NSString *)filePath;
 
+    /*!
+     Returns the icon overlay to draw for the specified file.
+     Call mustDrawIconOverlayOverFileAtPath: before this method to know if it is necesssary draw an icon overlay.
+     */
+    - (NSImage *)iconOverlayForFileAtPath:(NSString *)filePath;
+
 @end

@@ -23,12 +23,19 @@
  */
 @interface U1FinderLibAdaptor : NSObject <U1FinderLibDelegate>
 
-/*!
- Returns the single instance of the class.
- */
-+ (U1FinderLibAdaptor *)sharedInstance;
+    /*!
+     Returns the single instance of the class.
+     */
+    + (U1FinderLibAdaptor *)sharedInstance;
 
-// See U1FinderLib.py for documentation
-- (NSArray *)volumeList;
+    /*!
+     Returns the list of syncroniced folders.
+     */
+    - (NSArray *)syncronizedFolders;
+
+    /*!
+     Indicates if the specified file is in synchronization process.
+     */
+    - (BOOL)fileIsSynchronizing:(NSString *)filePath;
 
 @end

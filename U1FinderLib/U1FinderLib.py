@@ -31,6 +31,15 @@ class U1FinderLibDelegate(NSObject):
     def returnedVolumeList_(self, volumes):
         pass
 
+    @objc.typedSelector('v@:@')
+    def returnedUploads_(self, uploads):
+        pass
+
+    @objc.typedSelector('v@:@')
+    def returnedDownloads_(self, downloads):
+        pass
+
+
 ##
 # Objective-C facade to the methods of the U1FinderLib.
 class U1FinderLib(NSObject):
@@ -59,13 +68,24 @@ class U1FinderLib(NSObject):
         return None
 
     ##
-    # Indicates if the specified file is in synchronization process. Example output:
-    # { type:"file_is_synchronizing" path:"/Users/jose/Ubuntu One/Document.pdf" synchronizing:"YES/NO" }
-    @objc.typedSelector('@@:@')
-    def fileIsSynchronizing_(self, filePath):
-        reactor.callWhenRunning(run_command, "file_is_synchronizing", [filePath], self.sync_daemon_tool)
-        reactor.run()
-        return returned_value[0]
+    # Returns a NSArray<NSString> whit all the files that are being uploaded. Example:
+    # [
+    #     @"/Users/jose/Ubuntu One/Document.pdf",
+    #     @"/Users/jose/Pictures/Image.png"
+    # }
+    @objc.typedSelector('v@:')
+    def currentUploads(self):
+        d = self.sync_daemon_tool.get_current_uploads()
+        d.addCallback(lambda r: get_uploads(r, self.delegate))
+        return None
+
+    ##
+    # Like currentUploads() but with the downloads.
+    @objc.typedSelector('v@:')
+    def currentDownloads(self):
+        d = self.sync_daemon_tool.get_current_downloads()
+        d.addCallback(lambda r: get_downloads(r, self.delegate))
+        return None
     
     ##
     # Publish or unpublish the specified file. Example output:
@@ -92,6 +112,7 @@ class U1FinderLib(NSObject):
 def volume_list(folders, delegate):
     volumes = NSMutableArray.alloc().init()
     volumes.addObject_(NSString.alloc().initWithString_(os.path.expanduser('~/Ubuntu One')))
+    volumes.addObject_(NSString.alloc().initWithString_(os.path.expanduser('/Users/jose/Library/Application Support/ubuntuone')))
     
     for folder in folders:
         if (bool(folder['subscribed'])):
@@ -99,18 +120,17 @@ def volume_list(folders, delegate):
 
     delegate.returnedVolumeList_(volumes)
 
-# File is Synchronizing
-def get_uploads(uploads):
-    return_list = []
+def get_uploads(uploads, delegate):
+    returnUploads = NSMutableArray.alloc().initWithCapacity_(len(uploads))
     for upload in uploads:
-        return_list.append(upload['path'])
-    return return_list
+        returnUploads.addObject_(NSString.alloc().initWithString_(upload['path']))
+    delegate.returnedUploads_(returnUploads)
 
-def get_downloads(downloads):
-    return_list = []
+def get_downloads(downloads, delegate):
+    returnDownloads = NSMutableArray.alloc().initWithCapacity_(len(downloads))
     for download in downloads:
-        return_list.append(upload['downloads'])
-    return return_list
+        returnDownloads.addObject_(NSString.alloc().initWithString_(download['path']))
+    delegate.returnedDownloads_(returnDownloads)
 
 # Make File Public
 def change_public_access(info, path):

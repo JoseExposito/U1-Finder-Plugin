@@ -19,6 +19,8 @@
 @protocol U1FinderLibDelegate <NSObject>
 
     - (void)returnedVolumeList:(NSArray *)volumes;
+    - (void)returnedUploads:(NSArray *)uploads;
+    - (void)returnedDownloads:(NSArray *)downloads;
 
 @end
 
@@ -30,8 +32,7 @@
 
     - (id)initWithDelegate:(id<U1FinderLibDelegate>)delegate;
     - (void)volumeList;
-    - (NSString *)fileIsSynchronizing:(NSString *)path;
-    - (NSString *)makeFile:(NSString *)path public:(BOOL)public;
-    - (NSString *)getPublicLinkOfFile:(NSString *)path;
+    - (void)currentUploads;
+    - (void)currentDownloads;
 
 @end

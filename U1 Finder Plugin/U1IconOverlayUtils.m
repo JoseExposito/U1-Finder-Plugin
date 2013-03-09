@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 #import "U1IconOverlayUtils.h"
+#import "U1FinderLibAdaptor.h"
+#import "U1Resources.h"
 
 @implementation U1IconOverlayUtils
 @synthesize volumesToSynchronize = _volumesToSynchronize;
@@ -47,6 +49,14 @@
     }
             
     return NO;
+}
+
+- (NSImage *)iconOverlayForFileAtPath:(NSString *)filePath
+{
+    if ([[U1FinderLibAdaptor sharedInstance] fileIsSynchronizing:filePath])
+        return [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-synchronizing-emblem.icns"]];
+    else
+        return [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-synced-emblem.icns"]];
 }
 
 @end

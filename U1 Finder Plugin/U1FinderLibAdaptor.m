@@ -17,7 +17,12 @@
  */
 #import "U1FinderLibAdaptor.h"
 
-NSArray *returnedVolumeList;
+NSArray *returnedVolumeList = nil;
+
+NSArray *returnedUploads   = nil;
+NSArray *returnedDownloads = nil;
+NSTimeInterval lastSynchronizationCheck = 0;
+const int SYNCHRONIZATION_CHECK_TIME = 3;
 
 @interface U1FinderLibAdaptor ()
     @property (nonatomic, strong) U1FinderLib *finderLib;
@@ -42,7 +47,11 @@ NSArray *returnedVolumeList;
 	return sharedInstance;
 }
 
-- (NSArray *)volumeList
+
+#pragma mark syncronizedFolders
+
+
+- (NSArray *)syncronizedFolders
 {
     [self.finderLib volumeList];
     CFRunLoopRun();
@@ -53,6 +62,66 @@ NSArray *returnedVolumeList;
 {
     returnedVolumeList = volumes;
     CFRunLoopStop(CFRunLoopGetCurrent());
+}
+
+
+#pragma mark fileIsSynchronizing
+
+
+- (BOOL)fileIsSynchronizing:(NSString *)filePath
+{
+    if (filePath == nil)
+        return NO;
+    
+    NSTimeInterval currentTimestamp = [[[NSDate alloc] init] timeIntervalSince1970];
+    if (currentTimestamp - lastSynchronizationCheck - SYNCHRONIZATION_CHECK_TIME > 0) {
+        returnedUploads = nil;
+        returnedDownloads = nil;
+        
+        [self.finderLib currentUploads];
+        [self.finderLib currentDownloads];
+        
+        CFRunLoopRun();
+        
+        lastSynchronizationCheck = currentTimestamp;
+    }
+    
+    BOOL isDir;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir] && isDir) {
+        // If the file is a folder, mark it as synchronizing if their content is synchronizing
+        for (NSString *path in returnedUploads) {
+            if ([path rangeOfString:filePath].location != NSNotFound)
+                return YES;
+        }
+        
+        for (NSString *path in returnedDownloads) {
+            if ([path rangeOfString:filePath].location != NSNotFound)
+                return YES;
+        }
+        
+        return NO;
+        
+    } else {
+        return [returnedUploads containsObject:filePath] || [returnedDownloads containsObject:filePath];
+    }
+}
+
+- (void)returnedUploads:(NSArray *)uploads
+{
+    @synchronized(self) {        
+        returnedUploads = uploads;
+        if (returnedDownloads != nil)
+            CFRunLoopStop(CFRunLoopGetCurrent());
+    }
+}
+
+- (void)returnedDownloads:(NSArray *)downloads
+{
+    @synchronized(self) {        
+        returnedDownloads = downloads;
+        if (returnedUploads != nil)
+            CFRunLoopStop(CFRunLoopGetCurrent());
+    }
 }
 
 @end

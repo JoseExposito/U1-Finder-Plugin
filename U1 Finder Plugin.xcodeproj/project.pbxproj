@@ -26,6 +26,7 @@
 		821EC45D16E2BA6600041740 /* u1-synced-emblem.icns in Resources */ = {isa = PBXBuildFile; fileRef = 821EC45C16E2BA6600041740 /* u1-synced-emblem.icns */; };
 		8223BE821603515B00501BA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8223BE811603515B00501BA6 /* Cocoa.framework */; };
 		8223BE951603534700501BA6 /* U1Main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8223BE941603534700501BA6 /* U1Main.m */; };
+		825477F316EB700E00EA9B53 /* u1-synchronizing-emblem.icns in Resources */ = {isa = PBXBuildFile; fileRef = 825477F216EB700E00EA9B53 /* u1-synchronizing-emblem.icns */; };
 		8268CBEE16125AE100133DA9 /* U1 Finder Plugin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8223BE7E1603515B00501BA6 /* U1 Finder Plugin.bundle */; };
 		828283251608CFD500E8474C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 828283271608CFD500E8474C /* Localizable.strings */; };
 		82917EF6160E72990024B4F5 /* u1-folder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 82917EF5160E72990024B4F5 /* u1-folder.icns */; };
@@ -79,6 +80,7 @@
 		8223BE8D1603515B00501BA6 /* U1 Finder Plugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "U1 Finder Plugin-Prefix.pch"; sourceTree = "<group>"; };
 		8223BE931603534700501BA6 /* U1Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U1Main.h; sourceTree = "<group>"; };
 		8223BE941603534700501BA6 /* U1Main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U1Main.m; sourceTree = "<group>"; };
+		825477F216EB700E00EA9B53 /* u1-synchronizing-emblem.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "u1-synchronizing-emblem.icns"; path = "Resources/u1-synchronizing-emblem.icns"; sourceTree = SOURCE_ROOT; };
 		828283261608CFD500E8474C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		828283281608CFE100E8474C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82917EF5160E72990024B4F5 /* u1-folder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "u1-folder.icns"; path = "Resources/u1-folder.icns"; sourceTree = SOURCE_ROOT; };
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				821EC45C16E2BA6600041740 /* u1-synced-emblem.icns */,
+				825477F216EB700E00EA9B53 /* u1-synchronizing-emblem.icns */,
 				82917EF5160E72990024B4F5 /* u1-folder.icns */,
 				828283271608CFD500E8474C /* Localizable.strings */,
 			);
@@ -440,6 +443,7 @@
 				82AC7832167592320010D2D9 /* setup.py in Resources */,
 				82AC7833167592320010D2D9 /* U1FinderLib.py in Resources */,
 				821EC45D16E2BA6600041740 /* u1-synced-emblem.icns in Resources */,
+				825477F316EB700E00EA9B53 /* u1-synchronizing-emblem.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

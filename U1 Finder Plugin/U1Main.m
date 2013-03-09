@@ -30,7 +30,7 @@
     NSLog(@"########### U1 FINDER PLUGIN LOADED ###########");
     
     U1FinderLibAdaptor *finderLib = [U1FinderLibAdaptor sharedInstance];
-    NSArray *volumes = [finderLib volumeList];
+    NSArray *volumes = [finderLib syncronizedFolders];
     
     NSLog(@"Volume list obtained: %@", volumes);
     
