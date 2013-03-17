@@ -25,11 +25,6 @@
     + (U1IconOverlayUtils *)sharedInstance;
 
     /*!
-     List with the paths of the volumes to synchronize.
-     */
-    @property (nonatomic, strong) NSArray *volumesToSynchronize;
-
-    /*!
      Indicates if is necessary draw an icon overlay over the specified file.
      @param filePath The path of the file to check.
      */

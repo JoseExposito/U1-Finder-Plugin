@@ -17,15 +17,32 @@
  */
 #import "U1FinderLibAdaptor.h"
 
-NSArray *returnedVolumeList = nil;
-
-NSArray *returnedUploads   = nil;
-NSArray *returnedDownloads = nil;
-NSTimeInterval lastSynchronizationCheck = 0;
+/*!
+ Time, in seconds, to chache the U1FinderLib information.
+ */
+const int SYNCHRONIZED_FOLDERS_CHECK_TIME = 10;
 const int SYNCHRONIZATION_CHECK_TIME = 3;
 
 @interface U1FinderLibAdaptor ()
+
+    /*!
+     Instance of the Python library.
+     */
     @property (nonatomic, strong) U1FinderLib *finderLib;
+
+    /*!
+     List of files that are in upload/download process.
+     */
+    @property (nonatomic, strong) NSArray *uploads;
+    @property (nonatomic, strong) NSArray *downloads;
+    @property (nonatomic) NSTimeInterval lastUploadsAndDownloadsCheck;
+
+    /*!
+     List of synchronized folders.
+     */
+    @property (nonatomic, strong) NSArray *synchronizedFoldersList;
+    @property (nonatomic) NSTimeInterval lastSynchronizedFoldersCheck;
+
 @end
 
 @implementation U1FinderLibAdaptor
@@ -37,31 +54,49 @@ const int SYNCHRONIZATION_CHECK_TIME = 3;
     static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		sharedInstance = [[U1FinderLibAdaptor alloc] init];
-        
-        // Load the Python bundle
-        NSBundle *pluginBundle = [NSBundle bundleWithPath:@"/Library/ScriptingAdditions/U1 Finder Injector.osax/Contents/Resources/U1FinderLib.bundle"];
-        Class finderLibClass = [pluginBundle classNamed:@"U1FinderLib"];
-        sharedInstance.finderLib = [[finderLibClass alloc] initWithDelegate:sharedInstance];
 	});
     
 	return sharedInstance;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self == nil)
+        return nil;
+    
+    // Load the Python bundle
+    NSBundle *pluginBundle = [NSBundle bundleWithPath:@"/Library/ScriptingAdditions/U1 Finder Injector.osax/Contents/Resources/U1FinderLib.bundle"];
+    Class finderLibClass = [pluginBundle classNamed:@"U1FinderLib"];
+    self.finderLib = [[finderLibClass alloc] initWithDelegate:self];
+    
+    // Get the synchronized volumes
+    [self.finderLib volumeList];
+    
+    // Get the list of uploads/downloads
+    [self.finderLib currentUploads];
+    [self.finderLib currentDownloads];
+    
+    return self;
+}
 
 #pragma mark syncronizedFolders
 
 
 - (NSArray *)syncronizedFolders
 {
-    [self.finderLib volumeList];
-    CFRunLoopRun();
-    return returnedVolumeList;
+    NSTimeInterval currentTimestamp = [[[NSDate alloc] init] timeIntervalSince1970];
+    if (currentTimestamp - self.lastSynchronizedFoldersCheck - SYNCHRONIZED_FOLDERS_CHECK_TIME > 0) {
+        [self.finderLib volumeList];
+    }
+    
+    return self.synchronizedFoldersList;
 }
 
 - (void)returnedVolumeList:(NSArray *)volumes
-{
-    returnedVolumeList = volumes;
-    CFRunLoopStop(CFRunLoopGetCurrent());
+{    
+    self.synchronizedFoldersList = volumes;
+    self.lastSynchronizedFoldersCheck = [[[NSDate alloc] init] timeIntervalSince1970];
 }
 
 
@@ -74,27 +109,20 @@ const int SYNCHRONIZATION_CHECK_TIME = 3;
         return NO;
     
     NSTimeInterval currentTimestamp = [[[NSDate alloc] init] timeIntervalSince1970];
-    if (currentTimestamp - lastSynchronizationCheck - SYNCHRONIZATION_CHECK_TIME > 0) {
-        returnedUploads = nil;
-        returnedDownloads = nil;
-        
+    if (currentTimestamp - self.lastUploadsAndDownloadsCheck - SYNCHRONIZATION_CHECK_TIME > 0) {
         [self.finderLib currentUploads];
         [self.finderLib currentDownloads];
-        
-        CFRunLoopRun();
-        
-        lastSynchronizationCheck = currentTimestamp;
     }
     
     BOOL isDir;
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir] && isDir) {
         // If the file is a folder, mark it as synchronizing if their content is synchronizing
-        for (NSString *path in returnedUploads) {
+        for (NSString *path in self.uploads) {
             if ([path rangeOfString:filePath].location != NSNotFound)
                 return YES;
         }
         
-        for (NSString *path in returnedDownloads) {
+        for (NSString *path in self.downloads) {
             if ([path rangeOfString:filePath].location != NSNotFound)
                 return YES;
         }
@@ -102,26 +130,20 @@ const int SYNCHRONIZATION_CHECK_TIME = 3;
         return NO;
         
     } else {
-        return [returnedUploads containsObject:filePath] || [returnedDownloads containsObject:filePath];
+        return [self.uploads containsObject:filePath] || [self.downloads containsObject:filePath];
     }
 }
 
 - (void)returnedUploads:(NSArray *)uploads
 {
-    @synchronized(self) {        
-        returnedUploads = uploads;
-        if (returnedDownloads != nil)
-            CFRunLoopStop(CFRunLoopGetCurrent());
-    }
+    self.uploads = uploads;
+    self.lastUploadsAndDownloadsCheck = [[[NSDate alloc] init] timeIntervalSince1970];
 }
 
 - (void)returnedDownloads:(NSArray *)downloads
 {
-    @synchronized(self) {        
-        returnedDownloads = downloads;
-        if (returnedUploads != nil)
-            CFRunLoopStop(CFRunLoopGetCurrent());
-    }
+    self.downloads = downloads;
+    self.lastUploadsAndDownloadsCheck = [[[NSDate alloc] init] timeIntervalSince1970];
 }
 
 @end

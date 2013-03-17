@@ -20,7 +20,6 @@
 #import "U1Resources.h"
 
 @implementation U1IconOverlayUtils
-@synthesize volumesToSynchronize = _volumesToSynchronize;
 
 + (U1IconOverlayUtils *)sharedInstance;
 {
@@ -41,8 +40,12 @@
     
     if (filePath == nil)
         return NO;
-    
-    for (NSString *volume in self.volumesToSynchronize) {
+
+    if (![filePath hasPrefix:NSHomeDirectory()])
+        return NO;
+        
+    NSArray *volumes = [[U1FinderLibAdaptor sharedInstance] syncronizedFolders];    
+    for (NSString *volume in volumes) {
         if ([filePath rangeOfString:volume].location != NSNotFound) {
             return YES;
         }

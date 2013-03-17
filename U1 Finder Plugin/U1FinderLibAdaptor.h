@@ -34,7 +34,7 @@
     - (NSArray *)syncronizedFolders;
 
     /*!
-     Indicates if the specified file is in synchronization process.
+     Indicates if the specified file is in synchronization process (uploading or downloading).
      */
     - (BOOL)fileIsSynchronizing:(NSString *)filePath;
 

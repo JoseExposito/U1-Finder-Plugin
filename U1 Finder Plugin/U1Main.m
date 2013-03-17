@@ -18,7 +18,6 @@
 #import "U1Main.h"
 #import "U1Hook.h"
 #import "U1IconOverlayHook.h"
-#import "U1IconOverlayUtils.h"
 #import "U1ContextMenuHook.h"
 #import "U1Resources.h"
 #import "U1FinderLibAdaptor.h"
@@ -29,13 +28,8 @@
 {
     NSLog(@"########### U1 FINDER PLUGIN LOADED ###########");
     
-    U1FinderLibAdaptor *finderLib = [U1FinderLibAdaptor sharedInstance];
-    NSArray *volumes = [finderLib syncronizedFolders];
-    
-    NSLog(@"Volume list obtained: %@", volumes);
-    
-    // Store the volume list in the U1IconOverlayUtils class
-    [U1IconOverlayUtils sharedInstance].volumesToSynchronize = volumes;
+    // Init the Python library
+    [U1FinderLibAdaptor sharedInstance];
     
     // Set the U1 folder icon to the ~/Ubuntu One volume
     NSImage *folderImage = [[NSImage alloc] initWithContentsOfFile:[U1Resources getPathForResourceNamed:@"u1-folder.icns"]];
