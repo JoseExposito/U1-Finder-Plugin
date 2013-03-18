@@ -146,4 +146,54 @@ const int SYNCHRONIZATION_CHECK_TIME = 3;
     self.lastUploadsAndDownloadsCheck = [[[NSDate alloc] init] timeIntervalSince1970];
 }
 
+
+#pragma mark Synchronize folder / stop synchronizing folder
+
+
+- (void)synchronizeFolderAtPath:(NSString *)folderPath
+{
+    // TODO
+}
+
+- (void)stopSinchronizingFolderAtPath:(NSString *)folderPath
+{
+    // TODO    
+}
+
+
+#pragma mark Actions with file visibillity
+
+
+BOOL returnedFileVisibillity;
+- (BOOL)isFilePublic:(NSString *)filePath
+{
+    [self.finderLib isFilePublic:filePath];
+    CFRunLoopRun();
+    return returnedFileVisibillity;
+}
+- (void)returnedFileVisibillity:(BOOL)isPublic
+{
+    returnedFileVisibillity = isPublic;
+    CFRunLoopStop(CFRunLoopGetCurrent());
+}
+
+- (void)changeFile:(NSString *)filePath visibillity:(BOOL)isPublic;
+{
+    [self.finderLib changeFile:filePath visibillity:isPublic];
+}
+
+- (void)copyToTheClipboardThePublicLinkOfFileAtPath:(NSString *)filePath
+{
+    [self.finderLib getPublicLinkOfFile:filePath];
+}
+
+- (void)returnedPublicLink:(NSString *)publicLink
+{
+    NSLog(@"Link copied to the clipboard: %@", publicLink);
+    if (publicLink != nil) {
+        [[NSPasteboard generalPasteboard] declareTypes:[NSArray arrayWithObject: NSStringPboardType] owner:nil];
+        [[NSPasteboard generalPasteboard] setString:publicLink forType: NSStringPboardType];
+    }
+}
+
 @end

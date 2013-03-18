@@ -21,6 +21,8 @@
     - (void)returnedVolumeList:(NSArray *)volumes;
     - (void)returnedUploads:(NSArray *)uploads;
     - (void)returnedDownloads:(NSArray *)downloads;
+    - (void)returnedFileVisibillity:(BOOL)isPublic;
+    - (void)returnedPublicLink:(NSString *)publicLink;
 
 @end
 
@@ -34,5 +36,8 @@
     - (void)volumeList;
     - (void)currentUploads;
     - (void)currentDownloads;
+    - (void)isFilePublic:(NSString *)filePath;
+    - (void)changeFile:(NSString *)filePath visibillity:(BOOL)isPublic;
+    - (void)getPublicLinkOfFile:(NSString *)filePath;
 
 @end

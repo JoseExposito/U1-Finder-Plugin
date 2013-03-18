@@ -20,7 +20,7 @@
 #import "CDStructures.h"
 #import "TContextMenu.h"
 #import "FINode-FINodeAdditions.h"
-
+#import "U1FinderLibAdaptor.h"
 
 // { Not class-dump: Reversing
 #import <vector>
@@ -47,6 +47,11 @@ class TFENode4Vector : public std::vector<TFENode4> { };
      Returns the index where put the Ubuntu One menu depending of the selected items.
      */
     - (NSInteger)menuIndexForPaths:(NSArray /*NSString*/ *)selectedItems;
+
+    /*!
+     Auxiliar property to know what is the selected file in the menu callbacks.
+     */
+    @property (nonatomic, strong) NSString *menuSelectedFile;
 
 @end
 
@@ -86,22 +91,62 @@ class TFENode4Vector : public std::vector<TFENode4> { };
     
     [menu insertItem:[NSMenuItem separatorItem] atIndex:separatorIndex];
     NSMenuItem *mainMenu = [menu insertItemWithTitle:@"Ubuntu One" action:nil keyEquivalent:@"U1" atIndex:menuIndex];
-
-    // Create and add the Ubuntu One submenu
     NSMenu *submenu = [[NSMenu alloc] init];
-    NSMenuItem *synchronizeItem = [submenu addItemWithTitle:U1LocalizedString(@"Stop Synchronizing This Folder") action:@selector(u1SynchronizeMenuClicked:) keyEquivalent:@"U1-Synchronize"];
-    NSMenuItem *publishItem = [submenu addItemWithTitle:U1LocalizedString(@"Publish") action:@selector(u1PublishMenuClicked:) keyEquivalent:@"U1-Publish"];    
-    NSMenuItem *linkItem = [submenu addItemWithTitle:U1LocalizedString(@"Copy Web Link") action:@selector(u1LinkMenuClicked:) keyEquivalent:@"U1-Link"];
-    
-    [synchronizeItem setTarget:self];
-    [publishItem setTarget:self];
-    [linkItem setTarget:self];
-    
     [mainMenu setSubmenu:submenu];
     
-    // Enable or dissable the context menu options
-    if (selectedItems.count > 1) {
+    // Not show options if more than one file is selected
+    if (selectedItems == nil || selectedItems.count == 0 || selectedItems.count > 1) {
         [mainMenu setEnabled:NO];
+        return;
+    }
+    
+    U1FinderLibAdaptor *finderLib = [U1FinderLibAdaptor sharedInstance];
+    self.menuSelectedFile = [selectedItems objectAtIndex:0];
+    BOOL isDirectory;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.menuSelectedFile isDirectory:&isDirectory]) {
+        [mainMenu setEnabled:NO];
+        return;
+    }
+    
+    BOOL fileIsSynchronized = NO;
+    NSArray *volumes = [finderLib syncronizedFolders];
+    for (NSString *volume in volumes) {
+        if ([self.menuSelectedFile hasPrefix:volume])
+            fileIsSynchronized = YES;
+    }
+    
+    if (isDirectory) {
+        // No options if the selected directory is not in the user home or is into a synchronized folder
+        if ([self.menuSelectedFile isEqualToString:NSHomeDirectory()] || [self.menuSelectedFile hasPrefix:[NSHomeDirectory() stringByAppendingPathComponent:@"Ubuntu One"]]|| ![self.menuSelectedFile hasPrefix:NSHomeDirectory()]) {
+            [mainMenu setEnabled:NO];
+        
+        // If the selected directory is synchronized allow to stop synchronizing it
+        } else if ([[finderLib syncronizedFolders] containsObject:self.menuSelectedFile]) {
+            [[submenu addItemWithTitle:U1LocalizedString(@"Stop synchronizing this folder") action:@selector(u1StopSynchronizeMenuClicked:) keyEquivalent:@"U1-Stop-Synchronize"] setTarget:self];
+            
+        // If is not synchronized allow to synchronize it if it is not into a synchronized volume
+        } else {
+            if (fileIsSynchronized) {
+                [mainMenu setEnabled:NO];
+            } else {
+                [[submenu addItemWithTitle:U1LocalizedString(@"Synchronise this folder") action:@selector(u1SynchronizeMenuClicked:) keyEquivalent:@"U1-Synchronize"] setTarget:self];
+            }
+        }
+        
+    } else {
+        // If the file is not into a synchronized folder dissable the menu
+        if (!fileIsSynchronized) {
+            [mainMenu setEnabled:NO];
+            
+        } else {
+            if ([finderLib isFilePublic:self.menuSelectedFile]) {
+                [[submenu addItemWithTitle:U1LocalizedString(@"Stop publish") action:@selector(u1StopPublishMenuClicked:) keyEquivalent:@"U1-Stop-Publish-File"] setTarget:self];
+                [[submenu addItemWithTitle:U1LocalizedString(@"Copy web link") action:@selector(u1LinkMenuClicked:) keyEquivalent:@"U1-Link"] setTarget:self];
+            } else {
+                [[submenu addItemWithTitle:U1LocalizedString(@"Publish") action:@selector(u1PublishMenuClicked:) keyEquivalent:@"U1-Publish-File"] setTarget:self];
+            }
+        }
+        
     }
 }
 
@@ -112,16 +157,31 @@ class TFENode4Vector : public std::vector<TFENode4> { };
 - (void)u1SynchronizeMenuClicked:(id)param
 {
     NSLog(@"SYNCHRONIZE MENU CLICKED");
+    [[U1FinderLibAdaptor sharedInstance] synchronizeFolderAtPath:self.menuSelectedFile];
+}
+
+- (void)u1StopSynchronizeMenuClicked:(id)param
+{
+    NSLog(@"STOP SYNCHRONIZE MENU CLICKED");
+    [[U1FinderLibAdaptor sharedInstance] stopSinchronizingFolderAtPath:self.menuSelectedFile];
 }
 
 - (void)u1PublishMenuClicked:(id)param
 {
     NSLog(@"PUBLISH MENU CLICKED");
+    [[U1FinderLibAdaptor sharedInstance] changeFile:self.menuSelectedFile visibillity:YES];
+}
+
+- (void)u1StopPublishMenuClicked:(id)param
+{
+    NSLog(@"STOP PUBLISH MENU CLICKED");
+    [[U1FinderLibAdaptor sharedInstance] changeFile:self.menuSelectedFile visibillity:NO];
 }
 
 - (void)u1LinkMenuClicked:(id)param
 {
     NSLog(@"LINK MENU CLICKED");
+    [[U1FinderLibAdaptor sharedInstance] copyToTheClipboardThePublicLinkOfFileAtPath:self.menuSelectedFile];
 }
 
 

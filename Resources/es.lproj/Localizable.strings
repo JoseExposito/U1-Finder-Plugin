@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-"Stop Synchronizing This Folder" = "Dejar de Sincronizar esta Carpeta";
+"Synchronise this folder" = "Sincronizar esta carpeta";
+"Stop synchronizing this folder" = "Dejar de sincronizar esta carpeta";
 "Publish" = "Publicar";
-"Copy Web Link" = "Copiar Enlace Web";
+"Stop publish" = "Dejar de publicar";
+"Copy web link" = "Copiar el enlace web";

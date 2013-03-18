@@ -38,4 +38,17 @@
      */
     - (BOOL)fileIsSynchronizing:(NSString *)filePath;
 
+    /*!
+     To sichronize/stop sinchronizing folders.
+     */
+    - (void)synchronizeFolderAtPath:(NSString *)folderPath;
+    - (void)stopSinchronizingFolderAtPath:(NSString *)folderPath;
+
+    /*!
+     Actions with file visibillity.
+     */
+    - (BOOL)isFilePublic:(NSString *)filePath;
+    - (void)changeFile:(NSString *)filePath visibillity:(BOOL)isPublic;
+    - (void)copyToTheClipboardThePublicLinkOfFileAtPath:(NSString *)filePath;
+
 @end

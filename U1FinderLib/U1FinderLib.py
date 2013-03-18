@@ -21,7 +21,7 @@ import objc
 import os
 from   twisted.internet import (cfreactor, defer)
 from   ubuntuone.platform.tools import (SyncDaemonTool, is_already_running)
-from Foundation import (NSObject, NSString, NSMutableArray)
+from Foundation import (NSObject, NSString, NSMutableArray, NSLog)
 
 ##
 # Delegates of the U1FinderLib
@@ -39,6 +39,13 @@ class U1FinderLibDelegate(NSObject):
     def returnedDownloads_(self, downloads):
         pass
 
+    @objc.typedSelector('v@:B')
+    def returnedFileVisibillity_(self, isPublic):
+        pass
+    
+    @objc.typedSelector('v@:@')
+    def returnedPublicLink_(self, publicLink):
+        pass
 
 ##
 # Objective-C facade to the methods of the U1FinderLib.
@@ -88,22 +95,27 @@ class U1FinderLib(NSObject):
         return None
     
     ##
-    # Publish or unpublish the specified file. Example output:
-    # { type:"file_is_public" path:"/Users/jose/Ubuntu One/Document.pdf" is_public:"YES/NO" public_url:"http://ubuntuone.com/..." }
-    @objc.typedSelector('@@:@B')
-    def makeFile_public_(self, filePath, public):
-        reactor.callWhenRunning(run_command, "make_file_public", [filePath, public], self.sync_daemon_tool)
-        reactor.run()
-        return returned_value[0]
+    # Indicates if the specified file is public or not.
+    @objc.typedSelector('@@:@')
+    def isFilePublic_(self, filePath):
+        d = self.sync_daemon_tool.get_public_files()
+        d.addCallback(lambda r: file_is_public(r, filePath, self.delegate))
+        return None
+    
+    ##
+    # Publish or unpublish the specified file.
+    @objc.typedSelector('v@:@B')
+    def changeFile_visibillity_(self, filePath, isPublic):
+        self.sync_daemon_tool.change_public_access(os.path.abspath(filePath), isPublic)
+        return None
 
     ##
-    # Returns the link of a public file or nil if the file is not public. Example output:
-    # { type:"get_public_url" path:"/Users/jose/Ubuntu One/Document.pdf" public_url:"http://ubuntuone.com/..." }
+    # Returns the link (NSString) of a public file or nil if the file is not public.
     @objc.typedSelector('@@:@')
     def getPublicLinkOfFile_(self, filePath):
-        reactor.callWhenRunning(run_command, "get_public_link", [filePath], self.sync_daemon_tool)
-        reactor.run()
-        return returned_value[0]
+        d = self.sync_daemon_tool.get_public_files()
+        d.addCallback(lambda r: get_public_files(r, filePath, self.delegate))
+        return None
 
 
 ## CALLBACK FUNCTIONS ##
@@ -132,15 +144,17 @@ def get_downloads(downloads, delegate):
         returnDownloads.addObject_(NSString.alloc().initWithString_(download['path']))
     delegate.returnedDownloads_(returnDownloads)
 
-# Make File Public
-def change_public_access(info, path):
-    return '{ type:"file_is_public" path:"' + path + '" is_public:"' + ('YES' if bool(info['is_public']) else 'NO') + '" public_url:"' + ('' if not bool(info['public_url']) else info['public_url']) + '" }'
-
-
-# Get Public Link
-def get_public_files(public_files, path):
+def file_is_public(public_files, path, delegate):
     for public_file in public_files:
         if public_file['path'] == path:
-            return '{ type:"get_public_url" path:"' + path + '" public_url:"' + public_file['public_url'] + '" }'
-    
-    return '{ type:"error" reason:"The file is not public" }'
+            delegate.returnedFileVisibillity_(True)
+            return None
+    delegate.returnedFileVisibillity_(False)
+
+
+def get_public_files(public_files, path, delegate):
+    for public_file in public_files:
+        if public_file['path'] == path:
+            delegate.returnedPublicLink_(NSString.alloc().initWithString_(public_file['public_url']))
+            return None
+    delegate.returnedPublicLink_(None)
