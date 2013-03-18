@@ -23,6 +23,8 @@
     - (void)returnedDownloads:(NSArray *)downloads;
     - (void)returnedFileVisibillity:(BOOL)isPublic;
     - (void)returnedPublicLink:(NSString *)publicLink;
+    - (void)folderSynchronizedOk;
+    - (void)folderUnsuscribedOk;
 
 @end
 
@@ -39,5 +41,7 @@
     - (void)isFilePublic:(NSString *)filePath;
     - (void)changeFile:(NSString *)filePath visibillity:(BOOL)isPublic;
     - (void)getPublicLinkOfFile:(NSString *)filePath;
+    - (void)synchronizeFolderAtPath:(NSString *)folderPath;
+    - (void)unsuscribeFolderAtPath:(NSString *)folderPath;
 
 @end

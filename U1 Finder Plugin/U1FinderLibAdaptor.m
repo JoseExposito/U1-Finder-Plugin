@@ -152,12 +152,22 @@ const int SYNCHRONIZATION_CHECK_TIME = 3;
 
 - (void)synchronizeFolderAtPath:(NSString *)folderPath
 {
-    // TODO
+    [self.finderLib synchronizeFolderAtPath:folderPath];
+}
+- (void)folderSynchronizedOk
+{
+    NSLog(@"Folder synchronized");
+    [self.finderLib volumeList];
 }
 
 - (void)stopSinchronizingFolderAtPath:(NSString *)folderPath
 {
-    // TODO    
+    [self.finderLib unsuscribeFolderAtPath:folderPath];
+}
+- (void)folderUnsuscribedOk
+{
+    NSLog(@"Folder unsuscribed");
+    [self.finderLib volumeList];
 }
 
 

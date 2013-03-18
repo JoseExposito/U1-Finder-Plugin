@@ -47,6 +47,15 @@ class U1FinderLibDelegate(NSObject):
     def returnedPublicLink_(self, publicLink):
         pass
 
+    @objc.typedSelector('v@:')
+    def folderSynchronizedOk(self):
+        pass
+
+    @objc.typedSelector('v@:')
+    def folderUnsuscribedOk(self):
+        pass
+
+
 ##
 # Objective-C facade to the methods of the U1FinderLib.
 class U1FinderLib(NSObject):
@@ -117,6 +126,22 @@ class U1FinderLib(NSObject):
         d.addCallback(lambda r: get_public_files(r, filePath, self.delegate))
         return None
 
+    ##
+    # Synchronizes the specified folder
+    @objc.typedSelector('@@:@')
+    def synchronizeFolderAtPath_(self, folderPath):
+        d = self.sync_daemon_tool.create_folder(os.path.abspath(folderPath))
+        d.addCallback(lambda r: folder_synchronized(r, self.delegate))
+        return None
+
+    ##
+    # Unsuscribes the specified folder.
+    @objc.typedSelector('@@:@')
+    def unsuscribeFolderAtPath_(self, folderPath):
+        d = self.sync_daemon_tool.get_folders()
+        d.addCallback(lambda r: unsuscribe_volume_list(r, folderPath, self.sync_daemon_tool, self.delegate))
+        return None
+
 
 ## CALLBACK FUNCTIONS ##
 
@@ -158,3 +183,15 @@ def get_public_files(public_files, path, delegate):
             delegate.returnedPublicLink_(NSString.alloc().initWithString_(public_file['public_url']))
             return None
     delegate.returnedPublicLink_(None)
+
+def folder_synchronized(arg, delegate):
+    delegate.folderSynchronizedOk()
+
+def unsuscribe_volume_list(folders, folderPath, sync_daemon_tool, delegate):
+    for folder in folders:
+        if (folder['path'] == folderPath and bool(folder['subscribed'])):
+            d = sync_daemon_tool.delete_folder(folder['volume_id'])
+            d.addCallback(lambda r: folder_unsuscribed(r, delegate))
+
+def folder_unsuscribed(arg, delegate):
+    delegate.folderUnsuscribedOk()
