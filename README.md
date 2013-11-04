@@ -5,6 +5,9 @@ About U1 Finder Plugin:
 
 _U1 Finder Plugin_ allows to the **OS X** users to add integration with Ubuntu One in their Finder application, showing an icon overlay with the state of your synchronized files and adding Ubuntu One features to the context menu.
 
+<p align="center">
+	<img src="https://pbs.twimg.com/media/BFnAJN2CMAAzNmw.png:large" width="649" height="409">
+</p>
 
 Compilation and installation:
 =============================
