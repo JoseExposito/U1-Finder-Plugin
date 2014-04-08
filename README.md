@@ -3,6 +3,10 @@
 About U1 Finder Plugin:
 =======================
 
+<p align="center">
+    <a href="http://blog.canonical.com/2014/04/02/shutting-down-ubuntu-one-file-services/">IMPORTANT: UBUNTU ONE WILL BE SHUT DOWN BY CANONICAL ON 01/06/14</a>
+</p>
+
 _U1 Finder Plugin_ allows to the **OS X** users to add integration with Ubuntu One in their Finder application, showing an icon overlay with the state of your synchronized files and adding Ubuntu One features to the context menu.
 
 <p align="center">
